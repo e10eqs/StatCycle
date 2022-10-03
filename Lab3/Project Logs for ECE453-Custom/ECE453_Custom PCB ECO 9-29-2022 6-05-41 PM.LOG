@@ -1,0 +1,31 @@
+Added Component: Designator=J?(CONN9_020811_WRE)
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2022 Ultra Librarian. All rights reserved."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Part_Number_1"; Value = "732-693071020811TR-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Part_Number_2"; Value = "732-693071020811CT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Part_Number_3"; Value = "732-693071020811DKR-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "693071020811"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Wurth Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J?-3
+Added Pin To Net: NetName=GND Pin=J?-6
+Added Pin To Net: NetName=GND Pin=J?-15
+Added Pin To Net: NetName=3.3V Pin=J301-1
+Added Pin To Net: NetName=3.3V Pin=J301-2
+Added Pin To Net: NetName=3.3V Pin=J301-3
+Added Pin To Net: NetName=3.3V Pin=J?-4
+Added Net: Name=3.3V
+Added Pin To Net: NetName=MISO Pin=J302-2
+Added Pin To Net: NetName=MISO Pin=J?-7
+Added Net: Name=MISO
+Added Pin To Net: NetName=MOSI Pin=J302-1
+Added Pin To Net: NetName=MOSI Pin=J?-2
+Added Net: Name=MOSI
+Added Pin To Net: NetName=SCLK Pin=J302-3
+Added Pin To Net: NetName=SCLK Pin=J?-5
+Added Net: Name=SCLK
+Added Pin To Net: NetName=SS0 Pin=J302-4
+Added Pin To Net: NetName=SS0 Pin=J?-1
+Added Net: Name=SS0
+Added Pin To Net: NetName=XRES_N Pin=J302-5
+Added Net: Name=XRES_N

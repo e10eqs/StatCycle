@@ -1,0 +1,175 @@
+*************************************************************
+FileName = ECE453_Custom.GBR
+AutoAperture = True
+*************************************************************
+Generating : Top Layer
+      File : ECE453_Custom.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D13
+    D14
+    D15
+    D16
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : ECE453_Custom.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D26
+    D27
+    D28
+    D29
+    D30
+    D32
+    D33
+    D34
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : ECE453_Custom.GTO
+
+    Adding Layer      : Top Overlay
+
+    Adding Layer      : Mechanical 2
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : ECE453_Custom.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D19
+    D20
+    D21
+    D22
+    D24
+    D25
+    D35
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : ECE453_Custom.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : ECE453_Custom.GBO
+
+    Adding Layer      : Bottom Overlay
+
+    Adding Layer      : Mechanical 2
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D36
+    D37
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : ECE453_Custom.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D13
+    D14
+    D15
+    D16
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : ECE453_Custom.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+*************************************************************
+

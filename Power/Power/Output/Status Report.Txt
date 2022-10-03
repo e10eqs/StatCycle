@@ -1,0 +1,20 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [ECE453_Power.PcbDoc]
+   Generated File[ECE453_Power.GTO]
+   Generated File[ECE453_Power.GTP]
+   Generated File[ECE453_Power.GTS]
+   Generated File[ECE453_Power.GTL]
+   Generated File[ECE453_Power.GBL]
+   Generated File[ECE453_Power.GBS]
+   Generated File[ECE453_Power.GBP]
+   Generated File[ECE453_Power.GBO]
+   Generated File[ECE453_Power.RUL]
+   Generated File[ECE453_Power.EXTREP]
+   Generated File[ECE453_Power.REP]
+
+
+Files Generated   : 11
+Documents Printed : 0
+
+Finished Output Generation At 1:04:12 PM On 9/23/2022

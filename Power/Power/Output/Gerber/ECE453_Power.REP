@@ -1,0 +1,199 @@
+*************************************************************
+FileName = ECE453_Power.GBR
+AutoAperture = True
+*************************************************************
+Generating : Bottom Overlay
+      File : ECE453_Power.GBO
+
+    Adding Layer      : Bottom Overlay
+
+    Adding Layer      : Mechanical 2
+
+
+Used DCodes :
+    D11
+    D12
+    D13
+    D44
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : ECE453_Power.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : ECE453_Power.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D28
+    D29
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D43
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : ECE453_Power.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+    D18
+    D21
+    D22
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : ECE453_Power.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : ECE453_Power.GTO
+
+    Adding Layer      : Top Overlay
+
+    Adding Layer      : Mechanical 2
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : ECE453_Power.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D32
+    D33
+    D34
+    D35
+    D37
+    D38
+    D40
+    D41
+    D42
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : ECE453_Power.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Mechanical 2
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D32
+    D33
+    D34
+    D35
+    D37
+    D38
+    D39
+    D40
+    D41
+*************************************************************
+
