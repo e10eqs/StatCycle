@@ -1,0 +1,159 @@
+Checking if remote manifest is accessible...
+Getting manifests from remote server...
+
+Processing super-manifest https://github.com/cypresssemiconductorco/mtb-super-manifest/raw/v2.X/mtb-super-manifest-fv2.xml...
+One or more elements/attributes was ignored from manifest https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml. Run using the --verbose flag for additional details.
+Successfully acquired the information.
+
+Summary: 
+
+BSP: CY8CPROTO-063-BLE
+Template Application(s): Empty App
+Application(s) Root Path: C:/StatCycle/Modus
+
+Press "Create" to create the selected application(s).
+Collecting application data...
+
+
+Info: The following entered on the command line will create the exact same project as that created with the GUI tool:
+C:/Infineon/Tools/ModusToolbox/tools_2.4/project-creator/project-creator-cli.exe --board-id CY8CPROTO-063-BLE --board-uri https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE --board-commit latest-v3.X --app-id mtb-example-empty-app --app-uri https://github.com/Infineon/mtb-example-empty-app --app-commit latest-v3.X --cypress-tools C:/Infineon/Tools/ModusToolbox/tools_2.4 --target-dir C:/StatCycle/Modus --user-app-name Empty_App --output-for-machine --use-modus-shell
+
+
+==============================================================================
+= Cloning 'mtb-example-empty-app' =
+==============================================================================
+Cloning https://github.com/Infineon/mtb-example-empty-app into C:/StatCycle/Modus directory...
+env git clone --progress --origin cypress https://github.com/Infineon/mtb-example-empty-app Empty_App
+Cloning into 'Empty_App'...
+remote: Enumerating objects: 53, done.        
+remote: Counting objects: 100% (22/22), done.        
+remote: Compressing objects: 100% (16/16), done.        
+remote: Total 53 (delta 12), reused 10 (delta 6), pack-reused 31        
+Receiving objects: 100% (53/53), 86.33 KiB | 6.64 MiB/s, done.
+Resolving deltas: 100% (21/21), done.
+
+Checking out latest-v3.X...
+env git checkout --progress latest-v3.X
+Note: switching to 'latest-v3.X'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at a9e053c Upload mtb-example-psoc6-empty-app 3.0.0.181
+
+==============================================================================
+= Creating "TARGET_CY8CPROTO-063-BLE.mtb" file(s) =
+==============================================================================
+C:/StatCycle/Modus/Empty_App/deps/TARGET_CY8CPROTO-063-BLE.mtb was added
+C:/StatCycle/Modus/Empty_App/deps/TARGET_CY8CPROTO-062-4343W.mtb was removed
+
+==============================================================================
+= Updating Makefile for "Empty_App" =
+==============================================================================
+
+==============================================================================
+= Applying the Latest Version Locking for "Empty_App" =
+==============================================================================
+C:/StatCycle/Modus/Empty_App/deps/TARGET_CY8CPROTO-063-BLE.mtb was updated
+
+==============================================================================
+= Getting Dependencies for "Empty_App" =
+==============================================================================
+C:/Infineon/Tools/ModusToolbox/tools_2.4/modus-shell/bin/make.exe getlibs CY_TOOLS_PATHS=C:/Infineon/Tools/ModusToolbox/tools_2.4
+Tools Directory: C:/Infineon/Tools/ModusToolbox/tools_2.4
+
+==============================================================================
+= Importing libraries =
+==============================================================================
+Git is git version 2.33.0, found at /usr/bin/git
+
+Resolving dependencies...
+Checking if remote manifest is accessible...
+Getting manifests from remote server...
+Processing super-manifest https://github.com/cypresssemiconductorco/mtb-super-manifest/raw/v2.X/mtb-super-manifest-fv2.xml...
+One or more elements/attributes was ignored from manifest https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml. Run using the --verbose flag for additional details.
+Successfully acquired the information.
+INFO - Warning: Multiple versions of "core-make" requested. Keeping version "latest-v1.X" and discarding version "release-v1.9.0".
+C:/StatCycle/Modus/Empty_App/libs/core-lib.mtb was added
+C:/StatCycle/Modus/Empty_App/libs/core-make.mtb was added
+C:/StatCycle/Modus/Empty_App/libs/mtb-hal-cat1.mtb was added
+C:/StatCycle/Modus/Empty_App/libs/mtb-pdl-cat1.mtb was added
+C:/StatCycle/Modus/Empty_App/libs/psoc6cm0p.mtb was added
+C:/StatCycle/Modus/Empty_App/libs/recipe-make-cat1a.mtb was added
+Dependencies resolved.
+
+Searching application directory (.mtb)...
+Found 7 .mtb file(s)
+    Processing file "C:/StatCycle/Modus/Empty_App/deps/TARGET_CY8CPROTO-063-BLE.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/core-lib.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/core-make.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/mtb-hal-cat1.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/mtb-pdl-cat1.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/psoc6cm0p.mtb"
+    Processing file "C:/StatCycle/Modus/Empty_App/libs/recipe-make-cat1a.mtb"
+Libraries processed.
+Created file "C:/StatCycle/Modus/Empty_App/libs/mtb.mk".
+
+
+==============================================================================
+= Import complete =
+==============================================================================
+
+Project "Empty_App" created successfully.
+==============================================================================
+= Export "Empty_App" application to Eclipse IDE for ModusToolbox™ =
+==============================================================================
+C:/Infineon/Tools/ModusToolbox/tools_2.4/modus-shell/bin/make.exe eclipse CY_IDE_PRJNAME=Empty_App CY_MAKE_IDE=eclipse CY_MAKE_IDE_VERSION=2.4 CY_TOOLS_PATHS=C:/Infineon/Tools/ModusToolbox/tools_2.4
+Tools Directory: C:/Infineon/Tools/ModusToolbox/tools_2.4
+CY8CPROTO-063-BLE.mk: ./libs/TARGET_CY8CPROTO-063-BLE/CY8CPROTO-063-BLE.mk
+
+Running device-configurator to update stale files...
+Log file= "C:/Users/blusk/AppData/Local/Temp/device-configurator-cli/device-configurator-cli-20221003.151955.405-1016.log"
+Command line= "C:/Infineon/Tools/ModusToolbox/tools_2.4/device-configurator/device-configurator-cli.exe --library ../mtb_shared/mtb-pdl-cat1/release-v2.4.1/devicesupport.xml --build ./libs/TARGET_CY8CPROTO-063-BLE/COMPONENT_BSP_DESIGN_MODUS/design.modus --check-mcu=CYBLE-416045-02 --check-coprocessors= --readonly"
+-> Generated device configuration file(s) in ./libs/TARGET_CY8CPROTO-063-BLE/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource
+
+Prebuild operations complete
+Commencing build operations...
+
+Tools Directory: C:/Infineon/Tools/ModusToolbox/tools_2.4
+CY8CPROTO-063-BLE.mk: ./libs/TARGET_CY8CPROTO-063-BLE/CY8CPROTO-063-BLE.mk
+
+Initializing build: mtb-example-psoc6-empty-app Debug CY8CPROTO-063-BLE GCC_ARM
+
+Auto-discovery in progress...
+-> Found 204 .c file(s)
+-> Found 46 .S file(s)
+-> Found 22 .s file(s)
+-> Found 0 .cpp file(s)
+-> Found 0 .o file(s)
+-> Found 0 .a file(s)
+-> Found 557 .h file(s)
+-> Found 0 .hpp file(s)
+-> Found 0 resource file(s)
+Applying filters...
+Auto-discovery complete
+
+Constructing build rules...
+Build rules construction complete
+
+==============================================================================
+= Generating IDE files =
+==============================================================================
+
+Generated Eclipse launch config files:  "Empty_App Attach (JLink).launch" "Empty_App Attach (KitProg3_MiniProg4).launch" "Empty_App Debug (JLink).launch" "Empty_App Debug (KitProg3_MiniProg4).launch" "Empty_App Erase (JLink).launch" "Empty_App Erase (KitProg3_MiniProg4).launch" "Empty_App Program (JLink).launch" "Empty_App Program (KitProg3_MiniProg4).launch"
+  
+The project "Empty_App" was successfully exported to Eclipse IDE for ModusToolbox™.
+
+Successfully created and exported "Empty_App" application.
