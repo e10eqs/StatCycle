@@ -185,7 +185,24 @@ GenerateClassCluster=0
 DocumentUniqueId=HYZGUWGB
 
 [Document9]
-DocumentPath=5V_To_3_3V.SchDoc
+DocumentPath=05-SD_Card.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CFRIXDBF
+
+[Document10]
+DocumentPath=06-5V_To_3V3.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -201,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SXPNKBAA
 
-[Document10]
+[Document11]
 DocumentPath=ECE453_Power-v2.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KECLOFTI
 
-[Document11]
+[Document12]
 DocumentPath=ECE453-F22-Power.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +252,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NXOUKLHN
 
-[Document12]
+[Document13]
 DocumentPath=07-GPS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,8 +269,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UXEEXNGE
 
-[Document13]
-DocumentPath=3V3_Monitor.SchDoc
+[Document14]
+DocumentPath=08-3V3_Monitor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -269,8 +286,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HXCSLLOV
 
-[Document14]
-DocumentPath=5V_Monitor.SchDoc
+[Document15]
+DocumentPath=09-5V_Monitor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -286,7 +303,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NLKLFURU
 
-[Document15]
+[Document16]
 DocumentPath=TX.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -303,7 +320,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document17]
 DocumentPath=TX.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -319,6 +336,40 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CPLRPFCT
+
+[Document18]
+DocumentPath=02-Power_5v0.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=RNKWIVZW
+
+[Document19]
+DocumentPath=03-Power_3v3.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UXHFIGHL
 
 [GeneratedDocument1]
 DocumentPath=Output\BOM\Bill of Materials-ECE453-F22-MCU.xlsx
