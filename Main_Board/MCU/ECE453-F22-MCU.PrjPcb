@@ -253,6 +253,23 @@ GenerateClassCluster=0
 DocumentUniqueId=UXEEXNGE
 
 [Document13]
+DocumentPath=3V3_Monitor.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=HXCSLLOV
+
+[Document14]
 DocumentPath=5V_Monitor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -269,8 +286,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NLKLFURU
 
-[Document14]
-DocumentPath=3V3_Monitor.SchDoc
+[Document15]
+DocumentPath=TX.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -285,6 +302,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document16]
+DocumentPath=TX.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CPLRPFCT
 
 [GeneratedDocument1]
 DocumentPath=Output\BOM\Bill of Materials-ECE453-F22-MCU.xlsx
