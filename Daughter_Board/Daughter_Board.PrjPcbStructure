@@ -1,1 +1,7 @@
-Record=TopLevelDocument|FileName=DaughterBoard.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=02-MCU.SchDoc|SheetNumber=7
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=02-Power_5v0.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=03-Power_3v3.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=06-5V_To_3V3.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=08-3V3_Monitor.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=09-5V_Monitor.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=02-MCU.SchDoc|FileName=DaughterBoard.SchDoc|SheetNumber=1

@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=ANT Pin=C6-1
+Added Pin To Net: NetName=ANT Pin=C7-1
+Added Pin To Net: NetName=ANT Pin=C7-2
+Added Pin To Net: NetName=ANT Pin=L2-2
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=Default
+Added Room: Name=DaughterBoard
