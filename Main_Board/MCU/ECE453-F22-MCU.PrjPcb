@@ -50,7 +50,7 @@ PrefsRevisionGUID=
 
 [Document1]
 DocumentPath=01-Revision_History_and_Contents.SchDoc
-AnnotationEnabled=0
+AnnotationEnabled=1
 AnnotateStartValue=100
 AnnotationIndexControlEnabled=1
 AnnotateSuffix=
@@ -67,7 +67,7 @@ DocumentUniqueId=UUCNXNPW
 
 [Document2]
 DocumentPath=02-MCU.SchDoc
-AnnotationEnabled=0
+AnnotationEnabled=1
 AnnotateStartValue=200
 AnnotationIndexControlEnabled=1
 AnnotateSuffix=
@@ -191,7 +191,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=6
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -259,7 +259,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=7
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -276,7 +276,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=8
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -293,7 +293,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=9
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -310,7 +310,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=10
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -327,7 +327,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=11
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -338,6 +338,23 @@ GenerateClassCluster=0
 DocumentUniqueId=EGTTUUYC
 
 [Document18]
+DocumentPath=Push_Buttons.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=12
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=AGEVOQLP
+
+[Document19]
 DocumentPath=TX.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -354,7 +371,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document20]
 DocumentPath=TX.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -371,7 +388,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CPLRPFCT
 
-[Document20]
+[Document21]
 DocumentPath=RX.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -388,7 +405,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document22]
 DocumentPath=RX.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
