@@ -1,9 +1,0 @@
-Added Pin To Net: NetName=GND Pin=C6-2
-Added Pin To Net: NetName=GND Pin=L1-2
-Added Pin To Net: NetName=GND Pin=U1-3
-Change Net Name : Old Net Name=GND New Net Name=ANT
-Change Net Name : Old Net Name=NetC1_2 New Net Name=RO1
-Change Net Name : Old Net Name=NetC2_1 New Net Name=RO2
-Change Net Name : Old Net Name=NetC3_1 New Net Name=CAFGC
-Change Net Name : Old Net Name=NetC4_1 New Net Name=CTH
-Added Room: Name=DaughterBoard

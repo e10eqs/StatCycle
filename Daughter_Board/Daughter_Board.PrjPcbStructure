@@ -1,8 +1,0 @@
-Record=TopLevelDocument|FileName=01-Title_Page.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=02-MCU.SchDoc|SheetNumber=6
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=02-Power_5v0.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=03-5V_To_3V3.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=04-3V3_Monitor.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=05-5V_Monitor.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=LED_array.SchDoc|SheetNumber=7
-Record=NoMainPathDocument|SourceDocument=01-Title_Page.SchDoc|FileName=Receiver.SchDoc|SheetNumber=8
