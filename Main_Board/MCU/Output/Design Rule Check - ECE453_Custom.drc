@@ -1,0 +1,83 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Brandon\Downloads\StatCycle\Main_Board\MCU\ECE453_Custom.PcbDoc
+Date     : 10/27/2022
+Time     : 12:40:12 AM
+
+Processing Rule : Clearance Constraint (Gap=12mil) (All),(InPolygon)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2257.614mil,2850mil)(2276.865mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2257.614mil,2850mil)(2276.865mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2276.865mil,2869.252mil)(2353.976mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2276.865mil,2869.252mil)(2353.976mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2875.157mil,2869.252mil)(2930.748mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2875.157mil,2869.252mil)(2930.748mil,2869.252mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2930.748mil,2869.252mil)(2950mil,2850mil) on Top Layer 
+   Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Track (2930.748mil,2869.252mil)(2950mil,2850mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 7mil) Between Pad TX_ANT-1(329.37mil,585mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer 
+   Violation between Clearance Constraint: (5.685mil < 7mil) Between Pad U6-10(528.74mil,1169.5mil) on Top Layer And Track (509.055mil,1032.206mil)(509.055mil,1169.5mil) on Top Layer 
+   Violation between Clearance Constraint: (5.685mil < 7mil) Between Pad U6-2(509.055mil,1330.5mil) on Top Layer And Track (489.37mil,1258.787mil)(489.37mil,1330.5mil) on Top Layer 
+   Violation between Clearance Constraint: (5.685mil < 7mil) Between Pad U6-2(509.055mil,1330.5mil) on Top Layer And Track (528.74mil,1330.5mil)(528.74mil,1496.99mil) on Top Layer 
+   Violation between Clearance Constraint: (5.685mil < 7mil) Between Pad U6-4(469.685mil,1330.5mil) on Top Layer And Track (489.37mil,1258.787mil)(489.37mil,1330.5mil) on Top Layer 
+   Violation between Clearance Constraint: (5.685mil < 7mil) Between Pad U6-8(489.37mil,1169.5mil) on Top Layer And Track (509.055mil,1032.206mil)(509.055mil,1169.5mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 7mil) Between Track (328.474mil,585.896mil)(328.474mil,725.463mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 7mil) Between Track (328.474mil,585.896mil)(329.37mil,585mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer 
+Rule Violations :16
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Pad TX_ANT-1(329.37mil,585mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer Location : [X = 12387.833mil][Y = 1460.826mil]
+   Violation between Short-Circuit Constraint: Between Track (328.474mil,585.896mil)(328.474mil,725.463mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer Location : [X = 12386.937mil][Y = 1477.554mil]
+   Violation between Short-Circuit Constraint: Between Track (328.474mil,585.896mil)(329.37mil,585mil) on Top Layer And Track (329.37mil,180mil)(329.37mil,585mil) on Top Layer Location : [X = 12387.385mil][Y = 1461.274mil]
+Rule Violations :3
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C17-1(330.709mil,1160.996mil) on Top Layer And Pad U6-8(489.37mil,1169.5mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net 3.3V Between Pad U6-7(469.685mil,1169.5mil) on Top Layer And Pad U6-10(528.74mil,1169.5mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U6-4(469.685mil,1330.5mil) on Top Layer And Pad U6-8(489.37mil,1169.5mil) on Top Layer 
+Rule Violations :3
+
+Processing Rule : Width Constraint (Min=7mil) (Max=472.441mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=7mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=15mil) (Max=250mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=1mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (InNet('3.3V'))
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (InNet('5.0V'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=866.142mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Clearance Constraint (Gap=7mil) (All),(All)
+   Waived Violation between Clearance Constraint: (0.197mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Pad MD200-1(2875.157mil,2869.252mil) on Top Layer Waived by Brandon Lusk at 10/26/2022 5:16:40 PM
+   Waived Violation between Clearance Constraint: (0.197mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Pad MD200-1(2875.157mil,2869.252mil) on Top Layer Waived by Brandon Lusk at 10/26/2022 5:16:43 PM
+   Waived Violation between Clearance Constraint: (0.197mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Pad MD200-43(2353.976mil,2869.252mil) on Top Layer Waived by Brandon Lusk at 10/26/2022 5:16:48 PM
+   Waived Violation between Clearance Constraint: (0.197mil < 7mil) Between Area Fill (2181.496mil,2881.457mil) (3047.638mil,3220.827mil) on Keep-Out Layer And Pad MD200-43(2353.976mil,2869.252mil) on Top Layer Waived by Brandon Lusk at 10/26/2022 5:16:45 PM
+Waived Violations :4
+
+
+Violations Detected : 22
+Waived Violations : 4
+Time Elapsed        : 00:00:02
