@@ -72,7 +72,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=8
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=0
@@ -100,40 +100,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=02-Power_5v0.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=0
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=RNKWIVZW
-
-[Document5]
-DocumentPath=03-5V_To_3V3.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=2
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=0
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=SXPNKBAA
-
-[Document6]
 DocumentPath=04-3V3_Monitor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -150,24 +116,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HXCSLLOV
 
-[Document7]
-DocumentPath=05-5V_Monitor.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=4
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=0
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=NLKLFURU
-
-[Document8]
+[Document5]
 DocumentPath=02-MCU.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -184,7 +133,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VTCYPMVW
 
-[Document9]
+[Document6]
 DocumentPath=..\Main_Board\MCU\ECE453-S221\team6.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -201,7 +150,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PCQPNGDI
 
-[Document10]
+[Document7]
 DocumentPath=LED_array.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +167,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QECZQWZG
 
-[Document11]
+[Document8]
 DocumentPath=Receiver.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +184,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IGVOVQYY
 
-[Document12]
+[Document9]
 DocumentPath=..\Main_Board\MCU\ECE453_Power-v2.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,7 +201,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document10]
 DocumentPath=..\Main_Board\MCU\ECE453-F22-Power.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -269,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NXOUKLHN
 
-[Document14]
+[Document11]
 DocumentPath=schematic_submission.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -286,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document12]
 DocumentPath=Daughter_Board.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -303,7 +252,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document13]
 DocumentPath=..\Main_Board\MCU\ECE453-S221\ECE453_Interface.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -320,7 +269,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document17]
+[Document14]
 DocumentPath=..\Main_Board\MCU\ECE453-S221\ECE453-S22.SCHLIB
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -337,7 +286,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document15]
 DocumentPath=..\Main_Board\MCU\ECE453-S221\team6.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -353,6 +302,27 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document16]
+DocumentPath=08-Power_3V3.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=9
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=RNKWIVZW
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Daughter_Board\Design Rule Check - PCB.html
+DItemRevisionGUID=
 
 [Parameter1]
 Name=Title
