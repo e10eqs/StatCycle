@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Brandon\Downloads\StatCycle\Main_Board\MCU\ECE453_Custom.PcbDoc
 Date     : 10/31/2022
-Time     : 1:32:01 PM
+Time     : 10:37:41 PM
 
 Processing Rule : Clearance Constraint (Gap=12mil) (All),(InPolygon)
 Rule Violations :0
@@ -63,4 +63,4 @@ Rule Violations :0
 
 Violations Detected : 12
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
