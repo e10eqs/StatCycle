@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\Brandon\Downloads\StatCycle\Main_Board\MCU\ECE453_Custom.PcbDoc
-Date     : 10/30/2022
-Time     : 12:36:55 PM
+Date     : 10/31/2022
+Time     : 10:37:41 PM
 
 Processing Rule : Clearance Constraint (Gap=12mil) (All),(InPolygon)
 Rule Violations :0
@@ -15,13 +15,13 @@ Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
    Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2716.929mil,28.347mil) (3583.071mil,367.717mil) on Keep-Out Layer And Track (2884.901mil,384.429mil)(2889.409mil,379.921mil) on Top Layer 
    Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2716.929mil,28.347mil) (3583.071mil,367.717mil) on Keep-Out Layer And Track (3410.591mil,379.921mil)(3415.099mil,384.429mil) on Top Layer 
    Violation between Clearance Constraint: (4.705mil < 7mil) Between Area Fill (2716.929mil,28.347mil) (3583.071mil,367.717mil) on Keep-Out Layer And Track (3410.591mil,379.921mil)(3415.099mil,384.429mil) on Top Layer 
-   Violation between Clearance Constraint: (Collision < 7mil) Between Pad TX_ANT1-2(1410mil,615mil) on Multi-Layer And Track (1430mil,190mil)(1430mil,610mil) on Top Layer 
-   Violation between Clearance Constraint: (Collision < 7mil) Between Pad TX_ANT1-2(1450mil,615mil) on Multi-Layer And Track (1430mil,190mil)(1430mil,610mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 7mil) Between Pad TX_ANT1-2(1710mil,600mil) on Multi-Layer And Track (1730mil,175mil)(1730mil,595mil) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 7mil) Between Pad TX_ANT1-2(1750mil,600mil) on Multi-Layer And Track (1730mil,175mil)(1730mil,595mil) on Top Layer 
 Rule Violations :10
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
-   Violation between Short-Circuit Constraint: Between Pad TX_ANT1-2(1410mil,615mil) on Multi-Layer And Track (1430mil,190mil)(1430mil,610mil) on Top Layer Location : [X = 13468.463mil][Y = 1490.826mil]
-   Violation between Short-Circuit Constraint: Between Pad TX_ANT1-2(1450mil,615mil) on Multi-Layer And Track (1430mil,190mil)(1430mil,610mil) on Top Layer Location : [X = 13508.463mil][Y = 1490.826mil]
+   Violation between Short-Circuit Constraint: Between Pad TX_ANT1-2(1710mil,600mil) on Multi-Layer And Track (1730mil,175mil)(1730mil,595mil) on Top Layer Location : [X = 13768.463mil][Y = 1475.826mil]
+   Violation between Short-Circuit Constraint: Between Pad TX_ANT1-2(1750mil,600mil) on Multi-Layer And Track (1730mil,175mil)(1730mil,595mil) on Top Layer Location : [X = 13808.463mil][Y = 1475.826mil]
 Rule Violations :2
 
 Processing Rule : Un-Routed Net Constraint ( (All) )
