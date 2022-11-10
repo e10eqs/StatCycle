@@ -17,7 +17,7 @@ RevisionNamingSchemeGUID=
 [OutputGroup1]
 Name=ECE453.OutJob
 Description=
-TargetOutputMedium=BOM
+TargetOutputMedium=Gerbers
 VariantName=[No Variations]
 VariantScope=1
 CurrentConfigurationName=
@@ -58,7 +58,7 @@ OutputName2=Bill of Materials
 OutputCategory2=Report
 OutputDocumentPath2=
 OutputVariantName2=
-OutputEnabled2=1
+OutputEnabled2=0
 OutputEnabled2_OutputMedium1=0
 OutputEnabled2_OutputMedium2=0
 OutputEnabled2_OutputMedium3=0
@@ -76,15 +76,15 @@ Configuration2_Item3=Supplier Part Number 1=True|Description=True
 Configuration2_Name4=SortOrder
 Configuration2_Item4=Designator=Up|Footprint=Up
 Configuration2_Name5=VisibleOrder
-Configuration2_Item5=Description=120|Designator=120|Footprint=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=100|Supplier Stock 1=100|Supplier Part Number 10=100
+Configuration2_Item5=Description=120|Designator=120|Footprint=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=100|Supplier Part Number 10=209
 Configuration2_Name6=VisibleOrder_Flat
-Configuration2_Item6=Description=120|Designator=120|Footprint=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=100|Supplier Stock 1=100|Supplier Part Number 10=100
+Configuration2_Item6=Description=120|Designator=120|Footprint=120|Quantity=120|Supplier 1=100|Supplier Part Number 1=100|Supplier Part Number 10=209
 OutputType3=Gerber
 OutputName3=Gerber Files
 OutputCategory3=Fabrication
 OutputDocumentPath3=
 OutputVariantName3=
-OutputEnabled3=0
+OutputEnabled3=1
 OutputEnabled3_OutputMedium1=0
 OutputEnabled3_OutputMedium2=0
 OutputEnabled3_OutputMedium3=0
@@ -99,7 +99,7 @@ OutputName4=NC Drill Files
 OutputCategory4=Fabrication
 OutputDocumentPath4=
 OutputVariantName4=
-OutputEnabled4=0
+OutputEnabled4=1
 OutputEnabled4_OutputMedium1=0
 OutputEnabled4_OutputMedium2=0
 OutputEnabled4_OutputMedium3=0
@@ -201,9 +201,9 @@ OutputFileNameMulti5=
 UseOutputNameForMulti5=1
 OutputFileNameSpecial5=
 OpenOutput5=1
-OutputFilePath6=C:\Users\Joe Krachey\Documents\git\ece453\F22\Staff\MCU\Output\
-ReleaseManaged6=1
-OutputBasePath6=Output
+OutputFilePath6=C:\Users\Brandon\Downloads\Final Board\
+ReleaseManaged6=0
+OutputBasePath6=..\..\..\Final Board\
 OutputPathMedia6=
 OutputPathMediaValue6=
 OutputPathOutputer6=[Output Type]
@@ -240,7 +240,7 @@ OpenGerberOutput5=0
 OpenNCDrillOutput5=0
 OpenIPCOutput5=0
 EnableReload5=0
-RelativeOutputPath6=C:\Users\Joe Krachey\Documents\git\ece453\F22\Staff\MCU\Output\
+RelativeOutputPath6=C:\Users\Brandon\Downloads\Final Board\
 OpenOutputs6=1
 AddToProject6=1
 TimestampFolder6=0

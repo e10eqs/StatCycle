@@ -423,11 +423,135 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
-DocumentPath=Output\BOM\Bill of Materials-ECE453-F22-MCU.xlsx
+DocumentPath=..\..\..\BOM\Bill of Materials-ECE453-F22-MCU.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
+DocumentPath=Output\BOM\Bill of Materials-ECE453-F22-MCU.xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument3]
 DocumentPath=Output\Design Rule Check - ECE453_Custom.html
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=..\..\..\Final Board\NC Drill\ECE453_Custom.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=..\..\..\NC Drill\ECE453_Custom.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.G1
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.G1
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.G2
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.G2
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument23]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument24]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument25]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument28]
+DocumentPath=..\..\..\NC Drill\ECE453_Custom.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument29]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.REP
+DItemRevisionGUID=
+
+[GeneratedDocument30]
+DocumentPath=..\..\..\Final Board\Gerber\ECE453_Custom.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument31]
+DocumentPath=..\..\..\Gerber\ECE453_Custom.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument32]
+DocumentPath=..\..\..\Final Board\NC Drill\ECE453_Custom.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument33]
+DocumentPath=..\..\..\NC Drill\ECE453_Custom.TXT
 DItemRevisionGUID=
 
 [SearchPath1]
