@@ -1,0 +1,40 @@
+/*----------------------------------------------------------------------*/
+/* Foolproof FatFs sample project for AVR              (C)ChaN, 2014    */
+/*----------------------------------------------------------------------*/
+
+#include "ff.h"		/* Declarations of FatFs API */
+#include "cy_pdl.h"
+#include "cyhal.h"
+#include "cybsp.h"
+#define PIN_USER_LED P5_5	/* ADD CODE */
+
+FATFS FatFs;		/* FatFs work area needed for each volume */
+FIL Fil;			/* File object needed for each open file */
+
+
+int main (void)
+{
+	UINT bw;
+	FRESULT fr;
+
+	cyhal_gpio_init(
+			PIN_USER_LED,                // Pin
+			CYHAL_GPIO_DIR_OUTPUT,      // Direction
+			CYHAL_GPIO_DRIVE_STRONG,    // Drive Mode
+			false);				        // InitialValue
+
+	f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
+
+	fr = f_open(&Fil, "newfile2.txt", FA_WRITE | FA_CREATE_ALWAYS);	/* Create a file */
+	if (fr == FR_OK) {
+		f_write(&Fil, "It works!\r\n", 11, &bw);	/* Write data to the file */
+		fr = f_close(&Fil);							/* Close the file */
+		if (fr == FR_OK && bw == 11) {		/* Lights green LED if data written well */
+			cyhal_gpio_write(PIN_USER_LED, true);
+		}
+	}
+
+	for (;;) ;
+}
+
+
