@@ -106,13 +106,7 @@ void xmit_mmc (
 	UINT bc				/* Number of bytes to send */
 )
 {
-	BYTE d;
-
-
-	do {
-		d = *buff++;	/* Get a byte to be sent */
-		cyhal_spi_send(&spi_master_obj, d);
-	} while (--bc);
+	cyhal_spi_transfer(&spi_master_obj, buff, bc, NULL, 0, 0xFF);
 }
 
 
@@ -127,12 +121,7 @@ void rcvr_mmc (
 	UINT bc		/* Number of bytes to receive */
 )
 {
-	BYTE r;
-
-	do {
-		cyhal_spi_recv(&spi_master_obj, &r);
-		*buff++ = r;			/* Store a received byte */
-	} while (--bc);
+	cyhal_spi_transfer(&spi_master_obj, NULL, 0, buff, bc, 0xFF);
 }
 
 

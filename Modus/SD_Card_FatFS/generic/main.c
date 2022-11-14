@@ -17,6 +17,8 @@ int main (void)
 	UINT bw;
 	FRESULT fr;
 
+	__enable_irq();
+
 	cyhal_gpio_init(
 			PIN_USER_LED,                // Pin
 			CYHAL_GPIO_DIR_OUTPUT,      // Direction
@@ -25,8 +27,8 @@ int main (void)
 
 	f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
 
-	//fr = f_open(&Fil, "newfile6.txt", FA_WRITE | FA_CREATE_ALWAYS);	/* Create a file */
-	fr = f_unlink("newfile6.txt");
+	fr = f_open(&Fil, "brandonthisareallylongfilename.txt", FA_WRITE | FA_CREATE_ALWAYS);	/* Create a file */
+	//fr = f_unlink("brandonthisareallylongfilename.txt"); /* delete a file */
 	if (fr == FR_OK) {
 		char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
 		f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
