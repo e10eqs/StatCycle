@@ -42,17 +42,8 @@
 #define PIN_MCU_SCLK			P5_2
 #define PIN_MCU_CS				P5_3
 
-
-#define DO_INIT()	cyhal_gpio_init(PIN_MCU_MISO, CYHAL_GPIO_DIR_INPUT, CYHAL_GPIO_DRIVE_NONE, 0)      /* Initialize port for MMC DO as input */
-#define DO			cyhal_gpio_read(PIN_MCU_MISO)	/* Test for MMC DO ('H':true, 'L':false) */
-
-#define DI_INIT()	cyhal_gpio_init(PIN_MCU_MOSI, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0)		/* Initialize port for MMC DI as output */
-#define DI_H()		cyhal_gpio_write(PIN_MCU_MOSI, true)	/* Set MMC DI "high" */
-#define DI_L()		cyhal_gpio_write(PIN_MCU_MOSI, false)	/* Set MMC DI "low" */
-
-#define CK_INIT()	cyhal_gpio_init(PIN_MCU_SCLK, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0)	/* Initialize port for MMC SCLK as output */
-#define CK_H()		cyhal_gpio_write(PIN_MCU_SCLK, true)	/* Set MMC SCLK "high" */
-#define	CK_L()		cyhal_gpio_write(PIN_MCU_SCLK, false)	/* Set MMC SCLK "low" */
+extern cyhal_spi_t spi_master_obj;
+cyhal_spi_t spi_master_obj;
 
 #define CS_INIT()	cyhal_gpio_init(PIN_MCU_CS, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0)	/* Initialize port for MMC CS as output */
 #define	CS_H()		cyhal_gpio_write(PIN_MCU_CS, true)	/* Set MMC CS "high" */
@@ -120,22 +111,7 @@ void xmit_mmc (
 
 	do {
 		d = *buff++;	/* Get a byte to be sent */
-		if (d & 0x80) DI_H(); else DI_L();	/* bit7 */
-		CK_H(); CK_L();
-		if (d & 0x40) DI_H(); else DI_L();	/* bit6 */
-		CK_H(); CK_L();
-		if (d & 0x20) DI_H(); else DI_L();	/* bit5 */
-		CK_H(); CK_L();
-		if (d & 0x10) DI_H(); else DI_L();	/* bit4 */
-		CK_H(); CK_L();
-		if (d & 0x08) DI_H(); else DI_L();	/* bit3 */
-		CK_H(); CK_L();
-		if (d & 0x04) DI_H(); else DI_L();	/* bit2 */
-		CK_H(); CK_L();
-		if (d & 0x02) DI_H(); else DI_L();	/* bit1 */
-		CK_H(); CK_L();
-		if (d & 0x01) DI_H(); else DI_L();	/* bit0 */
-		CK_H(); CK_L();
+		cyhal_spi_send(&spi_master_obj, d);
 	} while (--bc);
 }
 
@@ -153,26 +129,8 @@ void rcvr_mmc (
 {
 	BYTE r;
 
-
-	DI_H();	/* Send 0xFF */
-
 	do {
-		r = 0;	 if (DO) r++;	/* bit7 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit6 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit5 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit4 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit3 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit2 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit1 */
-		CK_H(); CK_L();
-		r <<= 1; if (DO) r++;	/* bit0 */
-		CK_H(); CK_L();
+		cyhal_spi_recv(&spi_master_obj, &r);
 		*buff++ = r;			/* Store a received byte */
 	} while (--bc);
 }
@@ -382,9 +340,7 @@ DSTATUS disk_initialize (
 
 	dly_us(10000);			/* 10ms */
 	CS_INIT(); CS_H();		/* Initialize port pin tied to CS */
-	CK_INIT(); CK_L();		/* Initialize port pin tied to SCLK */
-	DI_INIT();				/* Initialize port pin tied to DI */
-	DO_INIT();				/* Initialize port pin tied to DO */
+	cyhal_spi_init(&spi_master_obj, PIN_MCU_MOSI, PIN_MCU_MISO, PIN_MCU_SCLK, NC, NULL, 8, CYHAL_SPI_MODE_00_MSB, false);
 
 	for (n = 10; n; n--) rcvr_mmc(buf, 1);	/* Apply 80 dummy clocks and the card gets ready to receive command */
 
