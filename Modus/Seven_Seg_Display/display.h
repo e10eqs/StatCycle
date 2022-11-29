@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "../main_board_pins.h"
 
 void display_init(void);
 void display_all_dig_off(void);

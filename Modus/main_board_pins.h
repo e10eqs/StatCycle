@@ -1,9 +1,7 @@
 #ifndef MAIN_BOARD_PINS_H_
 #define MAIN_BOARD_PINS_H_
 
-#include "cy_pdl.h"
 #include "cyhal.h"
-#include "cybsp.h"
 
 // SD CARD
 #define PIN_SD_CARD_MOSI P5_0

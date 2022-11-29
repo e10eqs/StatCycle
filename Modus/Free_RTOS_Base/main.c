@@ -1,10 +1,4 @@
-
-
-#include "cyhal.h"
-#include "cybsp.h"
-#include "FreeRTOS.h"
-#include "task.h"
-#include "../main_board_pins.h"
+#include "main.h"
 #define LED_GPIO PIN_USER_LED
 
 void blinky(void *arg) {
@@ -30,6 +24,7 @@ int main(void)
            CY_ASSERT(0);
        }
        __enable_irq();
+
        retval = xTaskCreate(blinky, "blinky", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
        if (pdPASS == retval)
        {

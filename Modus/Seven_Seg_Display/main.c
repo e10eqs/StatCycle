@@ -18,7 +18,6 @@ int main (void)
 
 	display_init();
 
-
 	while (true){
 		for(int i = 0; i < 4; i++){
 			display_digit(i, display[i % 4]);

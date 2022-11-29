@@ -25,4 +25,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>main_board_pins.h</name>
+			<type>1</type>
+			<location>/home/brandonlusk/Documents/StatCycle/Modus/main_board_pins.h</location>
+		</link>
+	</linkedResources>
 </projectDescription>

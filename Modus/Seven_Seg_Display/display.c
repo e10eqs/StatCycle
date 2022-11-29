@@ -1,5 +1,5 @@
 #include "display.h"
-#include "../main_board_pins.h"
+
 
 uint8_t SEVEN_SEG_LUT[] = { 0x3F,   // 0
 		0x06,  // 1
