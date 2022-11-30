@@ -18,7 +18,7 @@
 #define PIN_REED_SWITCH P6_5
 
 // SEGMENTS
-#define PIN_SEG_EN_DP P5_6
+#define PIN_SEG_EN_DP P7_7
 #define PIN_SEG_EN_A P9_0
 #define PIN_SEG_EN_B P9_1
 #define PIN_SEG_EN_C P9_2

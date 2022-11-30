@@ -1,6 +1,5 @@
 #include "display.h"
 
-
 uint8_t SEVEN_SEG_LOADING[] = { 0x01,   // 0
 		0x02,  // 1
 		0x04,  // 2
@@ -30,8 +29,7 @@ PIN_SEG_EN_C,
 PIN_SEG_EN_D,
 PIN_SEG_EN_E,
 PIN_SEG_EN_F,
-PIN_SEG_EN_G,
- };
+PIN_SEG_EN_G, };
 const size_t DIG_PIN_SIZE = 4;
 
 cyhal_gpio_t DIG_PIN[] = {
@@ -63,6 +61,9 @@ void display_init(void) {
 void display_all_dig_off(void) {
 	for (int i = 0; i < DIG_PIN_SIZE; i++) {
 		cyhal_gpio_write(DIG_PIN[i], true);
+	}
+	for (int i = 0; i < SEG_PIN_SIZE; i++) {
+		cyhal_gpio_write(SEG_PIN[i], false);
 	}
 }
 
@@ -96,6 +97,17 @@ void display_digit(uint8_t location, uint8_t number) {
 			cyhal_gpio_write(SEG_PIN[i], false);
 		}
 	}
+}
 
+void display_digit_all(uint8_t number) {
+	display_all_dig_on();
+
+	for (int i = 0; i < SEG_PIN_SIZE; i++) {
+		if ((1 << i) & SEVEN_SEG_LUT[number]) {
+			cyhal_gpio_write(SEG_PIN[i], true);
+		} else {
+			cyhal_gpio_write(SEG_PIN[i], false);
+		}
+	}
 }
 

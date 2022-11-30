@@ -19,9 +19,9 @@ int main(void)
        Queue_Speed = xQueueCreate(1, sizeof(uint8_t));
 
        xTaskCreate(Task_Redraw_Display, "Task_Redraw_Display", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
+
        //xTaskCreate(Task_Update_Display, "Task_Update_Display", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
-       
-       TaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
+       //xTaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
 
        vTaskStartScheduler();
 

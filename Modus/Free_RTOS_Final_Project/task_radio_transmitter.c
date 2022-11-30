@@ -1,7 +1,5 @@
 #include "task_radio_transmitter.h"
-#include "cy_pdl.h"
-#include "cyhal.h"
-#include "cybsp.h"
+
 
 
 //helper function that writes a data value into a buffer
@@ -28,8 +26,8 @@ void Task_Radio_Transmitter(void *pvParameters) {
 
 	while(1) {
 
-		xQueueReceive(Queue_Speed, &data, 0);
-		set_buffer(data, buffer)
+		xQueueReceive(Queue_Speed, &data, portMAX_DELAY);
+		set_buffer(data, buffer);
 
 		//STARTBIT_1:
 		cyhal_gpio_write(TRANSMITTER_OUT, 1);
@@ -40,7 +38,7 @@ void Task_Radio_Transmitter(void *pvParameters) {
 		vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
 
 		//BUFFEROUT:
-		cyhal_gpio_write(TRANSMITTER_OUT, buffer[i++]);
+		//cyhal_gpio_write(TRANSMITTER_OUT, buffer[i++]);
 		vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
 
 		//STOPBIT_1:
@@ -49,11 +47,11 @@ void Task_Radio_Transmitter(void *pvParameters) {
 
 		//STOPBIT_2:
 		cyhal_gpio_write(TRANSMITTER_OUT, 1);
-		svTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
+		vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
 
 		//wait for next transmission
 		cyhal_gpio_write(TRANSMITTER_OUT, 0);
-		svTaskDelay(pdMS_TO_TICKS(TRANSMISSION_TIMEOUT));
+		vTaskDelay(pdMS_TO_TICKS(TRANSMISSION_TIMEOUT));
 	}
 }
 

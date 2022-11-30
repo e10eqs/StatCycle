@@ -3,6 +3,7 @@
 
 #include "cyhal.h"
 #include "cybsp.h"
+#include "cy_pdl.h"
 #include "../main_board_pins.h"
 #include "display.h"
 
@@ -14,8 +15,10 @@
 #include "task_update_display.h"
 #include "task_radio_transmitter.h"
 
+enum states {LOADING, FLASH, NUM, OFF};
+
 typedef struct {
-	bool loading;
+	enum states current_state;
 	uint8_t display[4];
 } Display;
 

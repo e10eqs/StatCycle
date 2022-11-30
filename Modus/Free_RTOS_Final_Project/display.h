@@ -10,5 +10,6 @@ void display_all_dig_off(void);
 void display_all_dig_on(void);
 void display_loading(uint8_t number);
 void display_digit(uint8_t location, uint8_t number);
+void display_digit_all(uint8_t number);
 
 #endif
