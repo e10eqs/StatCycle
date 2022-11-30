@@ -12,6 +12,7 @@
 #include <semphr.h>
 #include "task_redraw_display.h"
 #include "task_update_display.h"
+#include "task_radio_transmitter.h"
 
 typedef struct {
 	bool loading;
@@ -19,5 +20,6 @@ typedef struct {
 } Display;
 
 extern QueueHandle_t Queue_Display;
+extern QueueHandle_t Queue_Speed;
 
 #endif /* MAIN_H_ */

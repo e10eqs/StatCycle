@@ -1,6 +1,7 @@
 #include "main.h"
 
 QueueHandle_t Queue_Display;
+QueueHandle_t Queue_Speed;
 
 int main(void)
    {
@@ -15,9 +16,12 @@ int main(void)
        display_init();
 
        Queue_Display = xQueueCreate(1, sizeof(Display));
+       Queue_Speed = xQueueCreate(1, sizeof(uint8_t));
 
        xTaskCreate(Task_Redraw_Display, "Task_Redraw_Display", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
        //xTaskCreate(Task_Update_Display, "Task_Update_Display", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
+       
+       TaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 5, NULL);
 
        vTaskStartScheduler();
 
