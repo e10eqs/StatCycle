@@ -3,7 +3,7 @@
 
 
 //helper function that writes a data value into a buffer
-void set_buffer(int value, int* buffer)
+void set_buffer(int value, bool* buffer)
 {
 	int value_copy = value;
 	int idx = 0;
@@ -17,8 +17,7 @@ void set_buffer(int value, int* buffer)
 void Task_Radio_Transmitter(void *pvParameters) {
 
 	//init gpio
-	cy_rslt_t result = cyhal_gpio_init(TRANSMITTER_OUT, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
-	CY_ASSERT(result);
+	cyhal_gpio_init(TRANSMITTER_OUT, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
 
 	//set up vars
 	bool buffer[8];
@@ -38,8 +37,10 @@ void Task_Radio_Transmitter(void *pvParameters) {
 		vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
 
 		//BUFFEROUT:
-		//cyhal_gpio_write(TRANSMITTER_OUT, buffer[i++]);
-		vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
+		for(int i = 0; i < 8; i++){
+			cyhal_gpio_write(TRANSMITTER_OUT, buffer[i++]);
+			vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
+		}
 
 		//STOPBIT_1:
 		cyhal_gpio_write(TRANSMITTER_OUT, 1);

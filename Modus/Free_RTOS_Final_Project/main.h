@@ -14,6 +14,7 @@
 #include "task_redraw_display.h"
 #include "task_update_display.h"
 #include "task_radio_transmitter.h"
+#include "task_dummy_velocity.h"
 
 enum states {LOADING, FLASH, NUM, OFF};
 
