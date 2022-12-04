@@ -1,0 +1,56 @@
+#include "task_state_machine.h"
+
+void task_state_machine(void *pvParameters)
+{
+	enum state_t {WAITING, RIDE_TIME, PAIRING, BLE_TRANSACTION};
+	static int state = WAITING;
+
+	vTaskSuspend(task_Radio_Transmitter_handle);
+	vTaskSuspend(task_Dummy_Velocity_handle);
+
+	while(1) {
+		int button;
+		switch(state){
+			case WAITING:
+				; //looks silly but is necessary. C doesn't allow delcarations after labels
+				Display loading_wait = {LOADING, {0,0,0,0}};
+				xQueueSend(Queue_Display, &loading_wait, portMAX_DELAY);
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				if(button == START_RIDE) {
+					button = NONE;
+					state = RIDE_TIME;
+				}
+				else if(button == PAIRING) {
+					button = NONE;
+					state = PAIRING;
+				}
+				break;
+			case RIDE_TIME:
+				//start gps, radio, and 7 seg task
+				vTaskResume(task_Dummy_Velocity_handle);
+				vTaskResume(task_Radio_Transmitter_handle);
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				if(button == START_RIDE) {
+					//end tasks and go back to waiting
+					vTaskSuspend(task_Radio_Transmitter_handle);
+					vTaskSuspend(task_Dummy_Velocity_handle);
+					button = NONE;
+					state = WAITING;
+				}
+				break;
+			case PAIRING:
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				Display flash_pairing = {FLASH, {0,0,0,0}};
+				xQueueSend(Queue_Display, &flash_pairing, portMAX_DELAY);
+				//start pairing task
+				//vTaskResume(task_handle_t);
+				state = BLE_TRANSACTION;
+				break;
+			case BLE_TRANSACTION:
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				//vTaskSuspend(task_handle_t);
+				//send packets, delete files, generally do your shit
+				state = WAITING;
+		}
+	}
+}
