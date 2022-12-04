@@ -22,7 +22,7 @@ void Task_Redraw_Display(void *pvParameters) {
 				display_all_dig_off();
 				vTaskDelay(pdMS_TO_TICKS(500));
 			}
-			d.current_state = OFF;
+			//d.current_state = OFF;
 			break;
 		case NUM:
 			;

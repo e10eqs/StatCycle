@@ -9,6 +9,8 @@ TaskHandle_t task_Dummy_Velocity_handle;
 TaskHandle_t task_Radio_Transmitter_handle;
 TaskHandle_t task_button_queue_send_handle;
 TaskHandle_t task_gps_sd_card_handle;
+TaskHandle_t task_ble_findme_process_handle;
+TaskHandle_t task_state_machine_handle;
 
 int main(void)
    {
@@ -25,6 +27,7 @@ int main(void)
        display_init();
        buttons_init();
        i2c_init();
+       ble_findme_init();
 
        Queue_Display = xQueueCreate(1, sizeof(Display));
        Queue_Speed = xQueueCreate(1, sizeof(uint8_t));
@@ -36,8 +39,9 @@ int main(void)
        //xTaskCreate(task_gps_sd_card, "task_gps_sd_card", configMINIMAL_STACK_SIZE, NULL, 3, &task_gps_sd_card_handle);
 
        xTaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 5, &task_Radio_Transmitter_handle);
-       xTaskCreate(task_state_machine, "task_state_machine", configMINIMAL_STACK_SIZE, NULL, 4, NULL);
+       xTaskCreate(task_state_machine, "task_state_machine", 1024, NULL, 4, &task_state_machine_handle);
        xTaskCreate(task_button_queue_send, "button_send_queue", configMINIMAL_STACK_SIZE, NULL, 3, &task_button_queue_send_handle);
+       xTaskCreate(task_ble_findme_process, "task_ble_findme_process", 1024, NULL, 4, &task_ble_findme_process_handle);
 
        vTaskStartScheduler();
 

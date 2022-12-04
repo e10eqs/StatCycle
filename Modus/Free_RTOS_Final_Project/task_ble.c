@@ -6,6 +6,7 @@
 #include "cy_retarget_io.h"
 #include "cybsp.h"
 #include "cycfg_ble.h"
+#include "main.h"
 
 
 /*******************************************************************************
@@ -70,57 +71,26 @@ void ble_findme_init(void)
 *  low power mode as required.
 *
 *******************************************************************************/
-void ble_findme_process(void)
+void task_ble_findme_process(void)
 {
-    /* Enter low power mode. The call to enter_low_power_mode also causes the
-     * device to enter hibernate mode if the BLE stack is shutdown.
-     */
-    enter_low_power_mode();
+    while(1){
+    	/* Enter low power mode. The call to enter_low_power_mode also causes the
+    	* device to enter hibernate mode if the BLE stack is shutdown.
+    	*/
+    	enter_low_power_mode();
+    	/* Cy_BLE_ProcessEvents() allows the BLE stack to process pending events */
+    	Cy_BLE_ProcessEvents();
 
-    /* Cy_BLE_ProcessEvents() allows the BLE stack to process pending events */
-    Cy_BLE_ProcessEvents();
+		if(wakeup_intr_flag)
+		{
+			wakeup_intr_flag = false;
+			volatile int state = Cy_BLE_GetState();
 
-    if(wakeup_intr_flag)
-    {
-        wakeup_intr_flag = false;
-
-        /* Update CYBSP_USER_LED1 to indicate current BLE status */
-        if(CY_BLE_ADV_STATE_ADVERTISING == Cy_BLE_GetAdvertisementState())
-        {
-            cyhal_gpio_toggle((cyhal_gpio_t)CYBSP_USER_LED1);
-        }
-        else if(CY_BLE_CONN_STATE_CONNECTED == Cy_BLE_GetConnectionState(app_conn_handle))
-        {
-            cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_ON);
-        }
-        else
-        {
-            cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_OFF);
-        }
-
-        /* Update CYBSP_USER_LED2 to indicate current alert level */
-        switch(alert_level)
-        {
-            case CY_BLE_NO_ALERT:
-            {
-                cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_OFF);
-                break;
-            }
-            case CY_BLE_MILD_ALERT:
-            {
-                cyhal_gpio_toggle((cyhal_gpio_t)CYBSP_USER_LED2);
-                break;
-            }
-            case CY_BLE_HIGH_ALERT:
-            {
-                cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_ON);
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
+			if(CY_BLE_CONN_STATE_CONNECTED == Cy_BLE_GetConnectionState(app_conn_handle))
+			{
+				xTaskNotifyGive(task_state_machine_handle);
+			}
+		}
     }
 }
 
@@ -202,7 +172,7 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         /* This event is received when the BLE stack is started */
         case CY_BLE_EVT_STACK_ON:
         {
-            printf("[INFO] : BLE stack started \r\n");
+//            printf("[INFO] : BLE stack started \r\n");
             ble_start_advertisement();
             break;
         }
@@ -218,17 +188,17 @@ static void stack_event_handler(uint32_t event, void* eventParam)
             {
                 case CY_BLE_GAP_ADV_TO:
                 {
-                    printf("[INFO] : Advertisement timeout event \r\n");
+//                    printf("[INFO] : Advertisement timeout event \r\n");
                     break;
                 }
                 case CY_BLE_GATT_RSP_TO:
                 {
-                    printf("[INFO] : GATT response timeout\r\n");
+//                    printf("[INFO] : GATT response timeout\r\n");
                     break;
                 }
                 default:
                 {
-                    printf("[INFO] : BLE timeout event\r\n");
+//                    printf("[INFO] : BLE timeout event\r\n");
                     break;
                 }
             }
@@ -238,28 +208,28 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         /* This event indicates completion of Set LE event mask */
         case CY_BLE_EVT_LE_SET_EVENT_MASK_COMPLETE:
         {
-            printf("[INFO] : Set LE mask event mask command completed\r\n");
+//            printf("[INFO] : Set LE mask event mask command completed\r\n");
             break;
         }
 
         /* This event indicates set device address command completed */
         case CY_BLE_EVT_SET_DEVICE_ADDR_COMPLETE:
         {
-            printf("[INFO] : Set device address command has completed \r\n");
+//            printf("[INFO] : Set device address command has completed \r\n");
             break;
         }
 
         /* This event indicates set Tx Power command completed */
         case CY_BLE_EVT_SET_TX_PWR_COMPLETE:
         {
-            printf("[INFO] : Set Tx power command completed\r\n");
+//            printf("[INFO] : Set Tx power command completed\r\n");
             break;
         }
 
         /* This event indicates BLE Stack Shutdown is completed */
         case CY_BLE_EVT_STACK_SHUTDOWN_COMPLETE:
         {
-            printf("[INFO] : BLE shutdown complete\r\n");
+//            printf("[INFO] : BLE shutdown complete\r\n");
             break;
         }
 
@@ -273,7 +243,7 @@ static void stack_event_handler(uint32_t event, void* eventParam)
          */
         case CY_BLE_EVT_GAP_DEVICE_CONNECTED:
         {
-            printf("[INFO] : GAP device connected \r\n");
+//            printf("[INFO] : GAP device connected \r\n");
             break;
         }
         /* This event is triggered instead of 'CY_BLE_EVT_GAP_DEVICE_CONNECTED',
@@ -281,7 +251,7 @@ static void stack_event_handler(uint32_t event, void* eventParam)
          */
         case CY_BLE_EVT_GAP_ENHANCE_CONN_COMPLETE:
         {
-            printf("[INFO] : GAP enhanced connection complete \r\n");
+//            printf("[INFO] : GAP enhanced connection complete \r\n");
             break;
         }
 
@@ -293,7 +263,7 @@ static void stack_event_handler(uint32_t event, void* eventParam)
             if(CY_BLE_CONN_STATE_DISCONNECTED ==
                Cy_BLE_GetConnectionState(app_conn_handle))
             {
-                printf("[INFO] : GAP device disconnected\r\n");
+//                printf("[INFO] : GAP device disconnected\r\n");
                 alert_level = CY_BLE_NO_ALERT;
                 ble_start_advertisement();
             }
@@ -307,11 +277,12 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         {
             if(CY_BLE_ADV_STATE_ADVERTISING == Cy_BLE_GetAdvertisementState())
             {
-                printf("[INFO] : BLE advertisement started\r\n");
+//                printf("[INFO] : BLE advertisement started\r\n");
+            	;
             }
             else
             {
-                printf("[INFO] : BLE advertisement stopped\r\n");
+//                printf("[INFO] : BLE advertisement stopped\r\n");
 
                 Cy_BLE_Disable();
             }
@@ -329,34 +300,34 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         case CY_BLE_EVT_GATT_CONNECT_IND:
         {
             app_conn_handle = *(cy_stc_ble_conn_handle_t *)eventParam;
-            printf("[INFO] : GATT device connected\r\n");
+//            printf("[INFO] : GATT device connected\r\n");
             break;
         }
 
         /* This event is generated at the GAP Peripheral end after disconnection */
         case CY_BLE_EVT_GATT_DISCONNECT_IND:
         {
-            printf("[INFO] : GATT device disconnected\r\n");
+//            printf("[INFO] : GATT device disconnected\r\n");
             break;
         }
 
         /* This event indicates that the 'GATT MTU Exchange Request' is received */
         case CY_BLE_EVT_GATTS_XCNHG_MTU_REQ:
         {
-            printf("[INFO] : GATT MTU Exchange Request received \r\n");
+//            printf("[INFO] : GATT MTU Exchange Request received \r\n");
             break;
         }
 
         /* This event received when GATT read characteristic request received */
         case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
         {
-            printf("[INFO] : GATT read characteristic request received \r\n");
+//            printf("[INFO] : GATT read characteristic request received \r\n");
             break;
         }
 
         default:
         {
-            printf("[INFO] : BLE Event 0x%lX\r\n", (unsigned long) event);
+//            printf("[INFO] : BLE Event 0x%lX\r\n", (unsigned long) event);
         }
     }
 }
@@ -409,7 +380,7 @@ static void ble_start_advertisement(void)
 
         if(CY_BLE_SUCCESS != ble_api_result)
         {
-            printf("[ERROR] : Failed to start advertisement \r\n");
+//            printf("[ERROR] : Failed to start advertisement \r\n");
         }
     }
 }
@@ -473,11 +444,7 @@ static void enter_low_power_mode(void)
     /* Enter hibernate mode if BLE is turned off  */
     if(CY_BLE_STATE_STOPPED == Cy_BLE_GetState())
     {
-        printf("[INFO] : Entering hibernate mode\r\n");
-
-        /* Turn of user LEDs */
-        cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_OFF);
-        cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_OFF);
+//        printf("[INFO] : Entering hibernate mode\r\n");
 
         /* Wait until UART transfer complete  */
         while(1UL == cyhal_uart_is_tx_active(&cy_retarget_io_uart_obj));

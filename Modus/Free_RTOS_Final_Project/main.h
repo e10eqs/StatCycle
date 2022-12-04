@@ -19,6 +19,7 @@
 #include "task_state_machine.h"
 #include "buttons.h"
 #include "task_gps_sd_card.h"
+#include "task_ble.h"
 
 enum states {LOADING, FLASH, NUM, OFF};
 
@@ -38,5 +39,7 @@ extern TaskHandle_t task_Dummy_Velocity_handle;
 extern TaskHandle_t task_Radio_Transmitter_handle;
 extern TaskHandle_t task_button_queue_send_handle;
 extern TaskHandle_t task_gps_sd_card_handle;
+extern TaskHandle_t task_ble_findme_process_handle;
+extern TaskHandle_t task_state_machine_handle;
 
 #endif /* MAIN_H_ */
