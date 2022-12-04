@@ -1,3 +1,6 @@
+/******************************************************************************
+ * Include header files
+ *****************************************************************************/
 #include "task_ble.h"
 #include "cyhal.h"
 #include "cy_retarget_io.h"
@@ -36,6 +39,8 @@ static void ble_start_advertisement(void);
 static void wakeup_timer_init(void);
 static void wakeup_timer_interrupt_handler(void *handler_arg, cyhal_lptimer_event_t event);
 static void ble_ias_callback(uint32 event, void *eventParam);
+static void enter_low_power_mode(void);
+
 
 /*******************************************************************************
 * Function Name: ble_findme_init
@@ -65,14 +70,57 @@ void ble_findme_init(void)
 *  low power mode as required.
 *
 *******************************************************************************/
-void ble_active(void)
+void ble_findme_process(void)
 {
+    /* Enter low power mode. The call to enter_low_power_mode also causes the
+     * device to enter hibernate mode if the BLE stack is shutdown.
+     */
+    enter_low_power_mode();
+
     /* Cy_BLE_ProcessEvents() allows the BLE stack to process pending events */
     Cy_BLE_ProcessEvents();
 
     if(wakeup_intr_flag)
     {
         wakeup_intr_flag = false;
+
+        /* Update CYBSP_USER_LED1 to indicate current BLE status */
+        if(CY_BLE_ADV_STATE_ADVERTISING == Cy_BLE_GetAdvertisementState())
+        {
+            cyhal_gpio_toggle((cyhal_gpio_t)CYBSP_USER_LED1);
+        }
+        else if(CY_BLE_CONN_STATE_CONNECTED == Cy_BLE_GetConnectionState(app_conn_handle))
+        {
+            cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_ON);
+        }
+        else
+        {
+            cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_OFF);
+        }
+
+        /* Update CYBSP_USER_LED2 to indicate current alert level */
+        switch(alert_level)
+        {
+            case CY_BLE_NO_ALERT:
+            {
+                cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_OFF);
+                break;
+            }
+            case CY_BLE_MILD_ALERT:
+            {
+                cyhal_gpio_toggle((cyhal_gpio_t)CYBSP_USER_LED2);
+                break;
+            }
+            case CY_BLE_HIGH_ALERT:
+            {
+                cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_ON);
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
     }
 }
 
@@ -154,6 +202,7 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         /* This event is received when the BLE stack is started */
         case CY_BLE_EVT_STACK_ON:
         {
+            printf("[INFO] : BLE stack started \r\n");
             ble_start_advertisement();
             break;
         }
@@ -224,7 +273,6 @@ static void stack_event_handler(uint32_t event, void* eventParam)
          */
         case CY_BLE_EVT_GAP_DEVICE_CONNECTED:
         {
-
             printf("[INFO] : GAP device connected \r\n");
             break;
         }
@@ -404,6 +452,41 @@ static void wakeup_timer_init(void)
     cyhal_lptimer_register_callback(&wakeup_timer, wakeup_timer_interrupt_handler, NULL);
     cyhal_lptimer_enable_event(&wakeup_timer, CYHAL_LPTIMER_COMPARE_MATCH,
                                WAKEUP_INTR_PRIORITY, true);
+}
+
+
+/*******************************************************************************
+* Function Name: enter_low_power_mode
+********************************************************************************
+* Summary:
+*  Configures the device to enter low power mode.
+*
+*  The function configures the device to enter deep sleep - whenever the
+*  BLE is idle and the UART transmission/reception is not happening.
+*
+*  In case if BLE is  turned off, the function configures the device to
+*  enter hibernate mode.
+*
+*******************************************************************************/
+static void enter_low_power_mode(void)
+{
+    /* Enter hibernate mode if BLE is turned off  */
+    if(CY_BLE_STATE_STOPPED == Cy_BLE_GetState())
+    {
+        printf("[INFO] : Entering hibernate mode\r\n");
+
+        /* Turn of user LEDs */
+        cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED1, CYBSP_LED_STATE_OFF);
+        cyhal_gpio_write((cyhal_gpio_t)CYBSP_USER_LED2, CYBSP_LED_STATE_OFF);
+
+        /* Wait until UART transfer complete  */
+        while(1UL == cyhal_uart_is_tx_active(&cy_retarget_io_uart_obj));
+        cyhal_syspm_hibernate(CYHAL_SYSPM_HIBERNATE_PINB_LOW);
+    }
+    else
+    {
+        cyhal_syspm_deepsleep();
+    }
 }
 
 

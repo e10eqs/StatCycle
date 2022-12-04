@@ -5,8 +5,8 @@
 /******************************************************************************
  * Function prototypes
  *****************************************************************************/
-void ble_init(void);
-void ble_active(void);
+void ble_findme_init(void);
+void ble_findme_process(void);
 
 
 #endif  /* BLE_FIND_ME_H */

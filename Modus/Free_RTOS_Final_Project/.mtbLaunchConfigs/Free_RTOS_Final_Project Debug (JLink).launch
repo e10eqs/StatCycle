@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="ilg.gnumcueclipse.debug.gdbjtag.jlink.launchConfigurationType">
-<stringAttribute key="com.cypress.studio.launch.owner.0" value="bce8e619-b303-4aad-973c-e5994509eee8"/>
 <stringAttribute key="com.cypress.studio.launch.mode" value="debug"/>
 <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.doConnectToRunning" value="false"/>
 <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.doContinue" value="true"/>
@@ -42,8 +41,8 @@
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetCpuFreq" value="0"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetPortMask" value="0x1"/>
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetSwoFreq" value="0"/>
-<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path:bce8e619-b303-4aad-973c-e5994509eee8}/../mtb_shared/mtb-pdl-cat1/release-v3.0.0/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
-<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="${cy_prj_path:bce8e619-b303-4aad-973c-e5994509eee8}/build/APP_CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
+<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path}/../mtb_shared/mtb-pdl-cat1/release-v2.4.1/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
+<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value="${cy_prj_path}/build/CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.jtagDevice" value="GNU MCU J-Link"/>
@@ -55,7 +54,7 @@
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>
-<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="${cy_prj_path:bce8e619-b303-4aad-973c-e5994509eee8}/build/APP_CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.elf"/>
+<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsFileName" value="${cy_prj_path}/build/CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.elf"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.symbolsOffset" value=""/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForImage" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.useFileForSymbols" value="true"/>
@@ -66,7 +65,7 @@
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path:bce8e619-b303-4aad-973c-e5994509eee8}/build/APP_CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.elf"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path}/build/CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.elf"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Free_RTOS_Final_Project"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">

@@ -40,7 +40,7 @@ MTB_TYPE=COMBINED
 # To change the target, it is recommended to use the Library manager
 # ('make library-manager' from command line), which will also update Eclipse IDE launch
 # configurations.
-TARGET=APP_CY8CPROTO-063-BLE
+TARGET=CY8CPROTO-063-BLE
 
 # Name of application (used to derive name of final linked file).
 #
@@ -86,6 +86,7 @@ VERBOSE=
 # added to the build
 #
 COMPONENTS=FREERTOS 
+COMPONENTS+=BLESS_HOST BLESS_CONTROLLER
 
 # Like COMPONENTS, but disable optional code that was enabled by default.
 DISABLE_COMPONENTS=
