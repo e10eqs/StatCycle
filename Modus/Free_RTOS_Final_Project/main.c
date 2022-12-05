@@ -12,6 +12,10 @@ TaskHandle_t task_gps_sd_card_handle;
 TaskHandle_t task_ble_findme_process_handle;
 TaskHandle_t task_state_machine_handle;
 
+FATFS FatFs;		/* FatFs work area needed for each volume */
+FIL Fil;			/* File object needed for each open file */
+FRESULT fr;
+
 int main(void)
    {
        cy_rslt_t result;
@@ -28,6 +32,9 @@ int main(void)
        buttons_init();
        i2c_init();
        ble_findme_init();
+       f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
+
+       fr = f_open(&Fil, "brandonthisareallylongfilename.txt", FA_OPEN_EXISTING);
 
        Queue_Display = xQueueCreate(1, sizeof(Display));
        Queue_Speed = xQueueCreate(1, sizeof(uint8_t));

@@ -6,6 +6,7 @@
 #include "cy_pdl.h"
 #include "cyhal.h"
 #include "cybsp.h"
+#include "stdlib.h"
 #define PIN_USER_LED P5_5	/* ADD CODE */
 
 FATFS FatFs;		/* FatFs work area needed for each volume */
@@ -15,7 +16,7 @@ FIL Fil;			/* File object needed for each open file */
 int main (void)
 {
 	UINT bw;
-	FRESULT fr;
+	volatile FRESULT fr;
 
 	__enable_irq();
 
@@ -27,15 +28,19 @@ int main (void)
 
 	f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
 
-	fr = f_open(&Fil, "brandonthisareallylongfilename.txt", FA_WRITE | FA_CREATE_ALWAYS);	/* Create a file */
+	fr = f_open(&Fil, "brandonthisareallylongfilename.txt", FA_READ);	/* Create a file */
 	//fr = f_unlink("brandonthisareallylongfilename.txt"); /* delete a file */
 	if (fr == FR_OK) {
-		char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
-		f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
+		//char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
+		//f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
+		int sz = f_size(&Fil);
+		char* thingToRead = calloc(1, sz);
+		fr = f_read(&Fil, thingToRead, sz, &bw);
 		fr = f_close(&Fil);							/* Close the file */
-		if (fr == FR_OK && bw == strlen(thingToWrite)) {		/* Lights green LED if data written well */
-			cyhal_gpio_write(PIN_USER_LED, true);
-		}
+		free(thingToRead);
+//		if (fr == FR_OK && bw == strlen(thingToWrite)) {		/* Lights green LED if data written well */
+//			cyhal_gpio_write(PIN_USER_LED, true);
+//		}
 	}
 	for (;;) ;
 }

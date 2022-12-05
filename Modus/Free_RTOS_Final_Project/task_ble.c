@@ -28,6 +28,8 @@ bool wakeup_intr_flag = false;
 bool gpio_intr_flag = false;
 uint8 alert_level = CY_BLE_NO_ALERT;
 cy_stc_ble_conn_handle_t app_conn_handle;
+//StatCycle specific
+cy_stc_ble_gatts_char_val_read_req_t *read_req_params;
 
 
 /*******************************************************************************
@@ -59,7 +61,7 @@ void ble_findme_init(void)
     wakeup_timer_init();
 
     /* Enable global interrupts */
-    __enable_irq();
+    //__enable_irq();
 }
 
 
@@ -321,7 +323,20 @@ static void stack_event_handler(uint32_t event, void* eventParam)
         /* This event received when GATT read characteristic request received */
         case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
         {
-//            printf("[INFO] : GATT read characteristic request received \r\n");
+        	read_req_params = (cy_stc_ble_gatts_char_val_read_req_t *)eventParam;
+
+        	if(CY_BLE_GPS_PVT_DATA_CHAR_HANDLE == read_req_params->attrHandle){
+        		UINT br;
+        		if (fr == FR_OK) {
+        			//char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
+        			int totalBytes = f_size(&Fil);
+        			char thingToRead[totalBytes];
+        			f_read(&Fil, thingToRead, totalBytes, &br);
+        			//f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
+        			fr = f_close(&Fil);							/* Close the file */
+            		CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(CY_BLE_GPS_PVT_DATA_CHAR_HANDLE, thingToRead, totalBytes);
+        		}
+        	}
             break;
         }
 

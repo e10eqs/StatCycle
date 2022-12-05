@@ -8,6 +8,7 @@
 #include "display.h"
 #include "i2c.h"
 #include "gps.h"
+#include "ff.h"
 
 /* RTOS header files */
 #include "FreeRTOS.h"
@@ -41,5 +42,9 @@ extern TaskHandle_t task_button_queue_send_handle;
 extern TaskHandle_t task_gps_sd_card_handle;
 extern TaskHandle_t task_ble_findme_process_handle;
 extern TaskHandle_t task_state_machine_handle;
+
+extern FATFS FatFs;		/* FatFs work area needed for each volume */
+extern FIL Fil;			/* File object needed for each open file */
+extern FRESULT fr;
 
 #endif /* MAIN_H_ */

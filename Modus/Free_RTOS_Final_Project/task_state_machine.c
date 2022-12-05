@@ -52,10 +52,14 @@ void task_state_machine(void *pvParameters)
 				state = BLE_TRANSACTION;
 				break;
 			case BLE_TRANSACTION:
-				//vTaskSuspend(task_handle_t);
-				//send packets, delete files, generally do your shit
-				vTaskSuspend(task_ble_findme_process_handle);
-				state = WAITING;
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				if(button == PAIRING){
+					vTaskSuspend(task_ble_findme_process_handle);
+					Display loading_wait = {LOADING, {0,0,0,0}};
+					xQueueSend(Queue_Display, &loading_wait, portMAX_DELAY);
+					button = NONE;
+					state = WAITING;
+				}
 		}
 	}
 }
