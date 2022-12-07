@@ -4,6 +4,7 @@
 #include "cyhal.h"
 #include "cybsp.h"
 #include "cy_pdl.h"
+#include "stdlib.h"
 #include "../main_board_pins.h"
 #include "display.h"
 #include "i2c.h"

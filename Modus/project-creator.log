@@ -1,215 +1,136 @@
-Loading the manifest data
-Loading super manfiest files from all sources
-Getting manifests from remote and/or local sources
-Processing system manifest 'https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml'
-Downloading super manifest file 'https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml'
-Finished loading super manifest files from all sources
-Finished download of file 'https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml'
-Starting to parse super manifest with URL 'https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml'
-Finished parsing super manifest with URL 'https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-ce-manifest/raw/v2.X/mtb-ce-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-ce-manifest/raw/v2.X/mtb-ce-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-app-manifest/raw/v2.X/mtb-bt-app-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-app-manifest/raw/v2.X/mtb-bt-app-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/memfault/mtb-memfault-ce-manifest/raw/main/mtb-memfault-ce-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/cce-app-manifest/raw/v2.X/cce-app-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/edgeimpulse/edgeimpulse-ce-manifest/raw/main/edgeimpulse-ce-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/golioth/mtb-golioth-ce-manifest/raw/main/mtb-golioth-ce-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-dependencies-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-dependencies-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-dependencies-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-dependencies-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-manifest.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-dependencies-manifest.xml'
-Downloading manifest file 'https://github.com/memfault/mtb-memfault-mw-manifest/raw/main/mtb-memfault-mw-manifest-fv2.xml'
-Downloading manifest file 'https://github.com/golioth/mtb-golioth-mw-manifest/raw/main/mtb-golioth-mw-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-ce-manifest/raw/v2.X/mtb-ce-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-ce-manifest/raw/v2.X/mtb-ce-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-app-manifest/raw/v2.X/mtb-bt-app-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-app-manifest/raw/v2.X/mtb-bt-app-manifest-fv2.xml'
-Finished download of file 'https://github.com/memfault/mtb-memfault-ce-manifest/raw/main/mtb-memfault-ce-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/cce-app-manifest/raw/v2.X/cce-app-manifest-fv2.xml'
-Finished download of file 'https://github.com/edgeimpulse/edgeimpulse-ce-manifest/raw/main/edgeimpulse-ce-manifest-fv2.xml'
-Finished download of file 'https://github.com/golioth/mtb-golioth-ce-manifest/raw/main/mtb-golioth-ce-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bsp-manifest/raw/v2.X/mtb-bsp-dependencies-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-bsp-manifest/raw/v2.X/mtb-bt-bsp-dependencies-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-dependencies-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-bt-mw-manifest/raw/v2.X/mtb-bt-mw-dependencies-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-manifest.xml'
-Finished download of file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-manifest-fv2.xml'
-Finished download of file 'https://github.com/Infineon/mtb-wifi-mw-manifest/raw/v2.X/mtb-wifi-mw-dependencies-manifest.xml'
-Finished download of file 'https://github.com/memfault/mtb-memfault-mw-manifest/raw/main/mtb-memfault-mw-manifest-fv2.xml'
-Finished download of file 'https://github.com/golioth/mtb-golioth-mw-manifest/raw/main/mtb-golioth-mw-manifest-fv2.xml'
-Finished loading the manifest data (1378 ms)
-Loading the device db
-Finished loading the device db (439 ms)
-INFO:directory '/usr/local/share/Infineon_Technologies_AG/Infineon-Toolbox' does not exist
-INFO:Using the executable path for the tools directory.
-0 error(s), 0 warning(s)
-INFO:directory '/usr/local/share/Infineon_Technologies_AG/Infineon-Toolbox' does not exist
-INFO:Using the executable path for the tools directory.
-INFO:directory '/usr/local/share/Infineon_Technologies_AG/Infineon-Toolbox' does not exist
-INFO:Using the executable path for the tools directory.
-INFO:directory '/usr/local/share/Infineon_Technologies_AG/Infineon-Toolbox' does not exist
-INFO:Using the executable path for the tools directory.
+Checking if remote manifest is accessible...
+Getting manifests from remote server...
+
+Processing super-manifest https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml...
+One or more elements/attributes was ignored from manifest https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml. Run using the --verbose flag for additional details.
+Successfully acquired the information.
 
 Summary: 
 
 BSP: CY8CPROTO-063-BLE
-Template Application(s): Empty App
+Template Application(s): mtb-example-psoc6-ble-findme-master
 Application(s) Root Path: /home/brandonlusk/Downloads/StatCycle/Modus
 
 Press "Create" to create the selected application(s).
-
 Collecting application data...
 
+
 Info: The following entered on the command line will create the exact same project as that created with the GUI tool:
-/home/brandonlusk/ModusToolbox/tools_3.0/project-creator/bin/project-creator-cli --board-id CY8CPROTO-063-BLE --board-uri https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE --board-commit latest-v4.X --app-id mtb-example-empty-app --app-uri https://github.com/Infineon/mtb-example-empty-app --app-commit latest-v4.X --cypress-tools /home/brandonlusk/ModusToolbox/tools_3.0 --target-dir /home/brandonlusk/Downloads/StatCycle/Modus --user-app-name SD_Card_FatFS --use-modus-shell
+/home/brandonlusk/ModusToolbox/tools_2.4/project-creator-1.41.0/bin/project-creator-cli --board-id CY8CPROTO-063-BLE --board-uri https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE --board-commit latest-v3.X --app-path /home/brandonlusk/Downloads/mtb-example-psoc6-ble-findme-master --cypress-tools /home/brandonlusk/ModusToolbox/tools_2.4 --target-dir /home/brandonlusk/Downloads/StatCycle/Modus --user-app-name mtb-example-psoc6-ble-findme-master --output-for-machine --use-modus-shell
 
-Starting application creation for '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS'.
-Acquiring the application source 'https://github.com/Infineon/mtb-example-empty-app'.
-Acquired application source successfully.
-Loading the application.
-Loaded the application successfully.
-Processing project 'SD_Card_FatFS'.
-Starting to commit changes to the filesystem and project 'mtb-example-empty-app'.
-Writing mtb file for asset 'CY8CPROTO-063-BLE' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/deps'.
-Writing mtb file for asset 'cat1cm0p' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'core-lib' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'core-make' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'mtb-hal-cat1' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'mtb-pdl-cat1' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'recipe-make-cat1a' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Writing mtb file for asset 'cmsis' to the folder '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs'.
-Starting: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE clone --bare https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Cloning into bare repository 'TARGET_CY8CPROTO-063-BLE'...
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 config remote.origin.fetch 'refs/heads/*:refs/heads/*'
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 fetch cypress --tags --force --quiet
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 checkout release-v1.3.1
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 checkout release-v1.0.0
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 checkout release-v2.2.0
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 checkout release-v2.0.0
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 checkout release-v3.0.0
-HEAD is now at 1c1cb8a Upload core-lib 1.3.1.29660
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-lib/release-v1.3.1 checkout release-v1.3.1
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 checkout release-v3.0.1
-HEAD is now at b3d4b82 Upload cat1cm0p 1.0.0.148
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cat1cm0p/release-v1.0.0 checkout release-v1.0.0
-HEAD is now at c3e71c0 Upload mtb-hal-cat1 2.2.0.29808
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-hal-cat1/release-v2.2.0 checkout release-v2.2.0
-HEAD is now at 28d875a Upload recipe-make-cat1a 2.0.0.4056
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/recipe-make-cat1a/release-v2.0.0 checkout release-v2.0.0
-HEAD is now at ab65210 Upload core-make 3.0.1.4080
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/core-make/release-v3.0.1 checkout release-v3.0.1
-HEAD is now at e851dc2 Upload mtb-pdl-cat1 3.0.0.19024
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/mtb-pdl-cat1/release-v3.0.0 checkout release-v3.0.0
-Success: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE clone --bare https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE remote add cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Success: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE remote add cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE remote set-url --push cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Success: git -C /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE remote set-url --push cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs clone --origin cypress --no-checkout /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE TARGET_CY8CPROTO-063-BLE
-Cloning into 'TARGET_CY8CPROTO-063-BLE'...
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 fetch cypress --tags --force --quiet
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 checkout release-v5.8.0
-done.
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs clone --origin cypress --no-checkout /home/brandonlusk/.modustoolbox/git/cache/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE checkout release-v4.0.0
-HEAD is now at ce02f64 Upload cmsis 5.8.0.50
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/mtb_shared/cmsis/release-v5.8.0 checkout release-v5.8.0
-Note: switching to 'release-v4.0.0'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
-HEAD is now at 560363a Upload TARGET_CY8CPROTO-063-BLE 4.0.0.29660
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE checkout release-v4.0.0
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote set-url cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote set-url cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote set-url --push cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote set-url --push cypress https://github.com/cypresssemiconductorco/TARGET_CY8CPROTO-063-BLE
-Starting: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote add cypress-offline /home/brandonlusk/.modustoolbox/offline/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE
-Success: git -C /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/TARGET_CY8CPROTO-063-BLE remote add cypress-offline /home/brandonlusk/.modustoolbox/offline/git/https___github.com_cypresssemiconductorco_TARGET_CY8CPROTO-063-BLE/TARGET_CY8CPROTO-063-BLE
-Requested to change the active target to 'APP_CY8CPROTO-063-BLE'.
-Removed the file '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/deps/TARGET_CY8CPROTO-063-BLE.mtb'.
-Writing the file '/home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/libs/app.mk'.
-Successfully committed changes to the project 'mtb-example-empty-app'.
-Project "SD_Card_FatFS" created successfully.
-Successfully created "SD_Card_FatFS" application.
 ==============================================================================
-= Export "SD_Card_FatFS" application to Eclipse IDE for ModusToolbox™ =
+= Copying '/home/brandonlusk/Downloads/mtb-example-psoc6-ble-findme-master' =
 ==============================================================================
-make eclipse CY_IDE_PRJNAME=SD_Card_FatFS CY_MAKE_IDE=eclipse CY_MAKE_IDE_VERSION=3.0 CY_TOOLS_PATHS=/home/brandonlusk/ModusToolbox/tools_3.0 MTB_MAKE_ECLIPSE_FORCE_REGENERATE_PROJECT=1
-Tools Directory: /home/brandonlusk/ModusToolbox/tools_3.0
-Searching installed tools in progress...
-Searching installed tools complete
+==============================================================================
+= Cleaning launch configurations =
+==============================================================================
+
+==============================================================================
+= Creating "TARGET_CY8CPROTO-063-BLE.mtb" file(s) =
+==============================================================================
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/TARGET_CY8CPROTO-063-BLE.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/TARGET_CY8CKIT-062-BLE.mtb was removed
+
+==============================================================================
+= Updating Makefile for "mtb-example-psoc6-ble-findme-master" =
+==============================================================================
+
+==============================================================================
+= Applying the Latest Version Locking for "mtb-example-psoc6-ble-findme-master" =
+==============================================================================
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/TARGET_CY8CPROTO-063-BLE.mtb was updated
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/bless.mtb was updated
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/retarget-io.mtb was updated
+
+==============================================================================
+= Getting Dependencies for "mtb-example-psoc6-ble-findme-master" =
+==============================================================================
+make getlibs CY_TOOLS_PATHS=/home/brandonlusk/ModusToolbox/tools_2.4
+Tools Directory: /home/brandonlusk/ModusToolbox/tools_2.4
+
+==============================================================================
+= Importing libraries =
+==============================================================================
+Git is git version 2.38.1, found at /usr/bin/git
+
+Resolving dependencies...
+Checking if remote manifest is accessible...
+Getting manifests from remote server...
+Processing super-manifest https://modustoolbox.infineon.com/manifests/mtb-super-manifest/v2.X/mtb-super-manifest-fv2.xml...
+One or more elements/attributes was ignored from manifest https://github.com/Infineon/mtb-mw-manifest/raw/v2.X/mtb-mw-manifest-fv2.xml. Run using the --verbose flag for additional details.
+Successfully acquired the information.
+INFO - Warning: Multiple versions of "core-make" requested. Keeping version "latest-v1.X" and discarding version "release-v1.9.0".
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/core-lib.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/core-make.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/mtb-hal-cat1.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/mtb-pdl-cat1.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/psoc6cm0p.mtb was added
+/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/recipe-make-cat1a.mtb was added
+Dependencies resolved.
+
+Searching application directory (.mtb)...
+Found 9 .mtb file(s)
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/bless.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/retarget-io.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/deps/TARGET_CY8CPROTO-063-BLE.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/core-lib.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/core-make.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/mtb-hal-cat1.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/mtb-pdl-cat1.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/psoc6cm0p.mtb"
+    Processing file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/recipe-make-cat1a.mtb"
+Libraries processed.
+Created file "/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/libs/mtb.mk".
 
 
+==============================================================================
+= Import complete =
+==============================================================================
 
+Project "mtb-example-psoc6-ble-findme-master" created successfully.
+==============================================================================
+= Export "mtb-example-psoc6-ble-findme-master" application to Eclipse IDE for ModusToolbox™ =
+==============================================================================
+make eclipse CY_IDE_PRJNAME=mtb-example-psoc6-ble-findme-master CY_MAKE_IDE=eclipse CY_MAKE_IDE_VERSION=2.4 CY_TOOLS_PATHS=/home/brandonlusk/ModusToolbox/tools_2.4
+Tools Directory: /home/brandonlusk/ModusToolbox/tools_2.4
+CY8CPROTO-063-BLE.mk: ./libs/TARGET_CY8CPROTO-063-BLE/CY8CPROTO-063-BLE.mk
+
+Running device-configurator to update stale files...
+Log file= "/tmp/device-configurator-cli/device-configurator-cli-20221206.185650.226-20805.log"
+Command line= "/home/brandonlusk/ModusToolbox/tools_2.4/device-configurator/bin/device-configurator-cli --library ../mtb_shared/mtb-pdl-cat1/release-v2.4.1/devicesupport.xml --build ./libs/TARGET_CY8CPROTO-063-BLE/COMPONENT_BSP_DESIGN_MODUS/design.modus --check-mcu=CYBLE-416045-02 --check-coprocessors= --readonly"
+INFO: The design file was last saved with a different version of the tools than was used to perform code generation. Last saved with: Tools Package 2.4.0.5972. Current: Tools Package 2.4.1.9711 (/home/brandonlusk/ModusToolbox/tools_2.4)
+-> Generated device configuration file(s) in ./libs/TARGET_CY8CPROTO-063-BLE/COMPONENT_BSP_DESIGN_MODUS/GeneratedSource
+
+Running bt-configurator to update stale files...
+Log file= "/tmp/bt-configurator-cli/bt-configurator-cli-20221206.185651.868-20821.log"
+Command line= "/home/brandonlusk/ModusToolbox/tools_2.4/bt-configurator/bin/bt-configurator-cli --config ./design.cybt"
+--config=/home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/./design.cybt
+INFO: The configuration file was last saved with a different version of the configurator than was used to perform code generation. Last saved with: Bluetooth Configurator 2.21. Current: Bluetooth Configurator 2.50.
+Successfully saved file /home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/GeneratedSource/cycfg_ble.h.
+Successfully saved file /home/brandonlusk/Downloads/StatCycle/Modus/mtb-example-psoc6-ble-findme-master/GeneratedSource/cycfg_ble.c.
+Success.
+-> Generated bt configuration file(s) in ./GeneratedSource
 
 Prebuild operations complete
-
-Auto-discovery in progress...
-Auto-discovery complete
 Commencing build operations...
 
-Tools Directory: /home/brandonlusk/ModusToolbox/tools_3.0
+Tools Directory: /home/brandonlusk/ModusToolbox/tools_2.4
+CY8CPROTO-063-BLE.mk: ./libs/TARGET_CY8CPROTO-063-BLE/CY8CPROTO-063-BLE.mk
 
-Initializing build: mtb-example-empty-app Debug APP_CY8CPROTO-063-BLE GCC_ARM
+Initializing build: mtb-example-psoc6-ble-findme Debug CY8CPROTO-063-BLE GCC_ARM
+
+Auto-discovery in progress...
+-> Found 253 .c file(s)
+-> Found 46 .S file(s)
+-> Found 22 .s file(s)
+-> Found 0 .cpp file(s)
+-> Found 0 .o file(s)
+-> Found 26 .a file(s)
+-> Found 620 .h file(s)
+-> Found 0 .hpp file(s)
+-> Found 0 resource file(s)
+Applying filters...
+Auto-discovery complete
 
 Constructing build rules...
 Build rules construction complete
@@ -217,24 +138,9 @@ Build rules construction complete
 ==============================================================================
 = Generating IDE files =
 ==============================================================================
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Attach (JLink).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Attach (KitProg3_MiniProg4).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Debug (JLink).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Debug (KitProg3_MiniProg4).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Erase (JLink).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Erase (KitProg3_MiniProg4).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Program (JLink).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.mtbLaunchConfigs/SD_Card_FatFS Program (KitProg3_MiniProg4).launch
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.project
-Generated /home/brandonlusk/Downloads/StatCycle/Modus/SD_Card_FatFS/.cproject
-Instructions:
-1. Open Eclipse IDE for ModusToolbox
-2. Select 'Import Existing Application In-Place' from the QuickPanel
-3. Browse to the application root directory
+
+Generated Eclipse launch config files:  "mtb-example-psoc6-ble-findme-master Attach (JLink).launch" "mtb-example-psoc6-ble-findme-master Attach (KitProg3_MiniProg4).launch" "mtb-example-psoc6-ble-findme-master Debug (JLink).launch" "mtb-example-psoc6-ble-findme-master Debug (KitProg3_MiniProg4).launch" "mtb-example-psoc6-ble-findme-master Erase (JLink).launch" "mtb-example-psoc6-ble-findme-master Erase (KitProg3_MiniProg4).launch" "mtb-example-psoc6-ble-findme-master Program (JLink).launch" "mtb-example-psoc6-ble-findme-master Program (KitProg3_MiniProg4).launch"
   
-The application "SD_Card_FatFS" was successfully exported to Eclipse IDE for ModusToolbox™.
-0 error(s), 0 warning(s)
+The project "mtb-example-psoc6-ble-findme-master" was successfully exported to Eclipse IDE for ModusToolbox™.
 
-Summary:
-
-Successfully created and exported "SD_Card_FatFS" application.
+Successfully created and exported "mtb-example-psoc6-ble-findme-master" application.
