@@ -40,89 +40,9 @@
 
 
 #include "cybsp.h"
-#include "led.h"
 #include "cy_pdl.h"
-
-cyhal_pwm_t usr_led;
-cy_rslt_t rslt;
-
-void (*mode[NUM_MODES])(int) = {pwm_duty_cycle_blue, sweep, pulse_all, pulse_color, pulse_party};
-bool buffer[8];
-int led_mode = 0;
-cyhal_pwm_t blue_led;
-/* Timer object used */
-cyhal_timer_t timer_obj;
-static void isr_radio_receiver(void *callback_arg, cyhal_timer_event_t event)
-{
-    (void) event;
-    enum state_t {WAITING, STARTBIT, BUFFERIN, STOPBIT_1, STOPBIT_2, INVALID, VALID};
-    static int speed = 0;
-    static int state = WAITING;
-    static int i = 0;
-
-//    (*mode[led_mode]) (speed);
-    bool in = cyhal_gpio_read(P10_4);
-    cyhal_gpio_write(P12_6, speed);
-    switch(state){
-        case WAITING:
-            i = 0;
-            state = in ? STARTBIT : WAITING;
-            break;
-        case STARTBIT:
-        	state = in ? BUFFERIN : WAITING;
-        	break;
-        case BUFFERIN:
-            buffer[i++] = in;
-            state = (i == 8) ? STOPBIT_1 : BUFFERIN;
-            break;
-        case STOPBIT_1:
-            state = in ? STOPBIT_2 : INVALID;
-            break;
-        case STOPBIT_2:
-             state = in ? VALID : INVALID;
-             break;
-        case INVALID:
-            state = WAITING;
-            break;
-        case VALID:
-        	speed = 0;
-        	for(int i = 0; i < 8; i++){
-        		speed |= buffer[i] << i;
-    		}
-        	cyhal_gpio_write(P5_5, speed);
-            state = WAITING;
-            break;
-    }
-}
-
-void cyhal_timer_event_interrupt()
-{
-    cy_rslt_t rslt;
-    const cyhal_timer_cfg_t timer_cfg =
-    {
-        .compare_value = 0,                 /* Timer compare value, not used */
-        .period = 100,                      /* Defines the timer period */
-        .direction = CYHAL_TIMER_DIR_UP,    /* Timer counts up */
-        .is_compare = false,                /* Don't use compare mode */
-        .is_continuous = true,              /* Run the timer indefinitely */
-        .value = 0                          /* Initial value of counter */
-    };
-    /* Initialize the timer object. Does not use pin output ('pin' is NC) and
-     * does not use a pre-configured clock source ('clk' is NULL). */
-    rslt = cyhal_timer_init(&timer_obj, NC, NULL);
-    CY_ASSERT(CY_RSLT_SUCCESS == rslt);
-    /* Apply timer configuration such as period, count direction, run mode, etc. */
-    rslt = cyhal_timer_configure(&timer_obj, &timer_cfg);
-    /* Set the frequency of timer to 10000 Hz */
-    rslt = cyhal_timer_set_frequency(&timer_obj, 10000);
-    /* Assign the ISR to execute on timer interrupt */
-    cyhal_timer_register_callback(&timer_obj, isr_radio_receiver, NULL);
-    /* Set the event on which timer interrupt occurs and enable it */
-    cyhal_timer_enable_event(&timer_obj, CYHAL_TIMER_IRQ_TERMINAL_COUNT, 0, true);
-    /* Start the timer with the configured settings */
-    rslt = cyhal_timer_start(&timer_obj);
-}
-
+#include "led.h"
+#include "push_button.h"
 
 int main(void)
 {
@@ -139,14 +59,12 @@ int main(void)
     /* Enable global interrupts */
     __enable_irq();
 
-   // pwm_init_all();
-    cyhal_gpio_init(P12_6, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0);
+    pwm_init_all();
 
     cyhal_gpio_init(P10_4, CYHAL_GPIO_DIR_INPUT, CYHAL_GPIO_DRIVE_PULLUP, 1);
 
-    cyhal_timer_event_interrupt();
-
-    cyhal_gpio_init(P5_5, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
+    led_interrupt();
+    push_button_init();
 }
 
 
