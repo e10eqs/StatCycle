@@ -28,6 +28,10 @@ bool wakeup_intr_flag = false;
 bool gpio_intr_flag = false;
 uint8 alert_level = CY_BLE_NO_ALERT;
 cy_stc_ble_conn_handle_t app_conn_handle;
+//StatCycle specific
+cy_stc_ble_gatts_char_val_read_req_t *read_req_params;
+cy_stc_ble_gatts_write_cmd_req_param_t *write_req_params;
+
 
 
 /*******************************************************************************
@@ -59,7 +63,7 @@ void ble_findme_init(void)
     wakeup_timer_init();
 
     /* Enable global interrupts */
-    __enable_irq();
+    //__enable_irq();
 }
 
 
@@ -318,12 +322,46 @@ static void stack_event_handler(uint32_t event, void* eventParam)
             break;
         }
 
-        /* This event received when GATT read characteristic request received */
-        case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
+        case CY_BLE_EVT_GATTS_WRITE_CMD_REQ:
         {
-//            printf("[INFO] : GATT read characteristic request received \r\n");
+        	write_req_params = (cy_stc_ble_gatts_write_cmd_req_param_t*) eventParam;
+
+        	if(CY_BLE_GPS_PVT_DATA_SEEK_CHAR_HANDLE == write_req_params->handleValPair.attrHandle){
+        		f_lseek(&Fil, *write_req_params->handleValPair.value.val);
+        	}
             break;
         }
+
+
+        /* This event received when GATT read characteristic request received */
+	case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ: {
+		read_req_params = (cy_stc_ble_gatts_char_val_read_req_t*) eventParam;
+
+		if (CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE
+				== read_req_params->attrHandle) {
+			FSIZE_t sz = f_size(&Fil);
+			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+					CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE, &sz, 8);
+		}
+
+		else if(CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE == read_req_params->attrHandle){
+			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+					CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE, &Fil.fptr,
+					sizeof(FSIZE_t));
+		}
+
+		else if (CY_BLE_GPS_PVT_DATA_CHAR_HANDLE == read_req_params->attrHandle) {
+			UINT br;
+			if (fr == FR_OK) {
+				char *thingToRead = calloc(1, 256);
+				f_read(&Fil, thingToRead, 256, &br);
+				CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+						CY_BLE_GPS_PVT_DATA_CHAR_HANDLE, thingToRead, 256);
+				free(thingToRead);
+			}
+		}
+		break;
+	}
 
         default:
         {

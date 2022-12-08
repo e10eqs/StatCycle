@@ -16,7 +16,7 @@ static void isr_debounce_start_ride(void *callback_arg, cyhal_timer_event_t even
         press_count = 0;
     }
     //debounce then add start ride to queue
-    if(press_count == 10){
+    if(press_count == 12){
     	press_count = 0;
     	pressed = START_RIDE;
     	vTaskNotifyGiveFromISR(task_button_queue_send_handle, &xHigherPriorityTaskWoken);

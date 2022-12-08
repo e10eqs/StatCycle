@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="ilg.gnumcueclipse.debug.gdbjtag.openocd.launchConfigurationType">
-<stringAttribute key="com.cypress.studio.launch.owner.0" value="ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e"/>
 <booleanAttribute key="com.cypress.studio.launch.hide" value="true"/>
 <stringAttribute key="com.cypress.studio.launch.mode" value="run"/>
 <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.doContinue" value="false"/>
@@ -19,12 +18,12 @@
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerExecutable" value="${openocd_path}/${openocd_executable}"/>
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerGdbPortNumber" value="3333"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerLog" value=""/>
-<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerOther" value="-s &quot;${openocd_path}/../scripts&quot;&#13;&#10;-c &quot;source [find interface/kitprog3.cfg]&quot;&#13;&#10;-c &quot;transport select swd&quot;&#13;&#10;-c &quot;source [find target/psoc6.cfg]&quot;&#13;&#10;-c &quot;init; reset init; psoc6 sflash_restrictions 1&quot;&#13;&#10;-c &quot;if [catch {erase_all} ] { echo {** Erase operation failed **} } else { echo {** Erase operation completed successfully **} }&quot;&#13;&#10;-c &quot;shutdown&quot;"/>
+<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerOther" value="-s &quot;${openocd_path}/../scripts&quot;&#13;&#10;-c &quot;source [find interface/kitprog3.cfg]&quot;&#13;&#10;-c &quot;source [find target/psoc6.cfg]&quot;&#13;&#10;-c &quot;init; reset init; psoc6 sflash_restrictions 1&quot;&#13;&#10;-c &quot;if [catch {erase_all} ] { echo {** Erase operation failed **} } else { echo {** Erase operation completed successfully **} }&quot;&#13;&#10;-c &quot;shutdown&quot;"/>
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.gdbServerTelnetPortNumber" value="4444"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.otherInitCommands" value=""/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.otherRunCommands" value=""/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.openocd.secondResetType" value="run"/>
-<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path:ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e}/../mtb_shared/mtb-pdl-cat1/release-v3.0.0/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
+<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path}/../mtb_shared/mtb-pdl-cat1/release-v2.4.1/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
@@ -48,7 +47,7 @@
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path:ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e}/build/APP_CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path}/build/CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="SD_Card_FatFS"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">

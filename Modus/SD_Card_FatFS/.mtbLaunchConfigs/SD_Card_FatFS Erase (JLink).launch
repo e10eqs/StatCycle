@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="ilg.gnumcueclipse.debug.gdbjtag.jlink.launchConfigurationType">
-<stringAttribute key="com.cypress.studio.launch.owner.0" value="ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e"/>
 <booleanAttribute key="com.cypress.studio.launch.hide" value="true"/>
 <stringAttribute key="com.cypress.studio.launch.mode" value="run"/>
 <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.doConnectToRunning" value="false"/>
@@ -31,11 +30,11 @@
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerDeviceName" value="CY8C6xx7_CM0p_sect256KB_tm"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerDeviceSpeed" value="auto"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerExecutable" value="${jlink_path}/${jlink_gdbserver}"/>
-<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerGdbPortNumber" value="2334"/>
+<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerGdbPortNumber" value="2331"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerLog" value=""/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerOther" value="-singlerun -strict -timeout 0 -nogui"/>
-<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerSwoPortNumber" value="2335"/>
-<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerTelnetPortNumber" value="2336"/>
+<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerSwoPortNumber" value="2332"/>
+<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.gdbServerTelnetPortNumber" value="2333"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.interfaceSpeed" value="auto"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.otherInitCommands" value=""/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.otherRunCommands" value="monitor reset 0&#13;&#10;monitor flash erase&#13;&#10;monitor reset 0&#13;&#10;quit"/>
@@ -43,7 +42,7 @@
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetCpuFreq" value="0"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetPortMask" value="0x1"/>
 <intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.jlink.swoEnableTargetSwoFreq" value="0"/>
-<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path:ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e}/../mtb_shared/mtb-pdl-cat1/release-v3.0.0/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
+<stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.svdPath" value="${cy_prj_path}/../mtb_shared/mtb-pdl-cat1/release-v2.4.1/devices/COMPONENT_CAT1A/svd/psoc6_01.svd"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageFileName" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.imageOffset" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
@@ -51,7 +50,7 @@
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadSymbols" value="false"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
-<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="2334"/>
+<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="2331"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="false"/>
@@ -67,7 +66,7 @@
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path:ff23b2e1-f0ae-47cf-b0cc-5de39fa55a7e}/build/APP_CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="${cy_prj_path}/build/CY8CPROTO-063-BLE/Debug/mtb-example-empty-app.hex"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="SD_Card_FatFS"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">

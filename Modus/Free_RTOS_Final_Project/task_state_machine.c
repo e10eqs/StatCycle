@@ -28,11 +28,13 @@ void task_state_machine(void *pvParameters)
 				break;
 			case RIDE_TIME:
 				//start gps, radio, and 7 seg task
+			    fr = f_open(&Fil, "fake_gps_data.txt", FA_CREATE_ALWAYS | FA_WRITE);
 				vTaskResume(task_Dummy_Velocity_handle);
 				vTaskResume(task_Radio_Transmitter_handle);
 				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
 				if(button == START_RIDE) {
 					//end tasks and go back to waiting
+					f_close(&Fil);
 					vTaskSuspend(task_Radio_Transmitter_handle);
 					vTaskSuspend(task_Dummy_Velocity_handle);
 					button = NONE;
@@ -40,11 +42,10 @@ void task_state_machine(void *pvParameters)
 				}
 				break;
 			case BLE_PAIRING:
-				;//looks silly but is necessary. C doesn't allow declarations after labels
+				;
 				Display flash_pairing = {FLASH, {0,0,0,0}};
 				xQueueSend(Queue_Display, &flash_pairing, portMAX_DELAY);
 				//start pairing task
-
 				vTaskResume(task_ble_findme_process_handle);
 				ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 				Display paired = {NUM, {8,8,8,8}};
@@ -52,10 +53,14 @@ void task_state_machine(void *pvParameters)
 				state = BLE_TRANSACTION;
 				break;
 			case BLE_TRANSACTION:
-				//vTaskSuspend(task_handle_t);
-				//send packets, delete files, generally do your shit
-				vTaskSuspend(task_ble_findme_process_handle);
-				state = WAITING;
+				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
+				if(button == PAIRING){
+					vTaskSuspend(task_ble_findme_process_handle);
+					Display loading_wait = {LOADING, {0,0,0,0}};
+					xQueueSend(Queue_Display, &loading_wait, portMAX_DELAY);
+					button = NONE;
+					state = WAITING;
+				}
 		}
 	}
 }
