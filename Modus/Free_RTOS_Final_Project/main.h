@@ -10,6 +10,7 @@
 #include "i2c.h"
 #include "gps.h"
 #include "ff.h"
+#include "string.h"
 
 /* RTOS header files */
 #include "FreeRTOS.h"

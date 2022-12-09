@@ -285,16 +285,6 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 	}
 		//write expecting a response
 	case CY_BLE_EVT_GATTS_WRITE_REQ: {
-		write_req_params = (cy_stc_ble_gatts_write_cmd_req_param_t*) eventParam;
-
-		if (CY_BLE_GPS_OPEN_FILE_CHAR_HANDLE
-				== write_req_params->handleValPair.attrHandle) {
-			if (rFil == NULL) {
-				rFil = malloc(sizeof(FIL));
-				rfr = f_open(rFil, write_req_params->handleValPair.value.val, FA_OPEN_EXISTING | FA_READ);
-			}
-			Cy_BLE_GATTS_WriteRsp(write_req_params->connHandle);
-		}
 		break;
 	}
 
@@ -302,20 +292,22 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 	case CY_BLE_EVT_GATTS_WRITE_CMD_REQ: {
 		write_req_params = (cy_stc_ble_gatts_write_cmd_req_param_t*) eventParam;
 
-		if (CY_BLE_GPS_PVT_DATA_SEEK_CHAR_HANDLE
-				== write_req_params->handleValPair.attrHandle) {
-			f_lseek(&Fil, *write_req_params->handleValPair.value.val);
+		switch (write_req_params->handleValPair.attrHandle) {
+		case CY_BLE_GPS_PVT_DATA_SEEK_CHAR_HANDLE:
+			f_lseek(rFil, *write_req_params->handleValPair.value.val);
+			break;
 		}
-		else if (CY_BLE_GPS_OPEN_FILE_CHAR_HANDLE
-				== write_req_params->handleValPair.attrHandle) {
-			if (rFil == NULL) {
-				rFil = malloc(sizeof(FIL));
-				rfr = f_open(rFil, write_req_params->handleValPair.value.val, FA_OPEN_EXISTING | FA_READ);
-			}
-			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
-					CY_BLE_GPS_OPEN_FILE_CHAR_HANDLE, &rfr,
-					sizeof(FRESULT));
+		case (CY_BLE_GPS_OPEN_FILE_CHAR_HANDLE):
+		if (rFil == NULL) {
+			rFil = malloc(sizeof(FIL));
+			int sz = write_req_params->handleValPair.value.len + 1;
+			char *name = malloc(sz);
+			snprintf(name, sz, "%s", write_req_params->handleValPair.value.val);
+			rfr = f_open(rFil, name,
+			FA_OPEN_EXISTING | FA_READ);
+			free(name);
 		}
+		break;
 		break;
 	}
 
@@ -323,35 +315,43 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 	case CY_BLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ: {
 		read_req_params = (cy_stc_ble_gatts_char_val_read_req_t*) eventParam;
 
-		if (CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE
-				== read_req_params->attrHandle) {
-//			FSIZE_t sz = f_size(Fil);
-//			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
-//					CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE, &sz, 8);
-
+		switch (read_req_params->attrHandle) {
+		case CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE:
+			;
+			FSIZE_t sz = f_size(rFil);
 			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
-					CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE, &rfr,
-					sizeof(FRESULT));
-		}
-
-		else if (CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE
-				== read_req_params->attrHandle) {
+					CY_BLE_GPS_PVT_DATA_SIZE_CHAR_HANDLE, &sz, 8);
+			break;
+		case CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE:
 			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
-					CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE, Fil->fptr,
+					CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE, rFil->fptr,
 					sizeof(FSIZE_t));
-		}
-
-		else if (CY_BLE_GPS_PVT_DATA_CHAR_HANDLE
-				== read_req_params->attrHandle) {
+			break;
+		case CY_BLE_GPS_FILE_STATUS_CHAR_HANDLE:
+			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+					CY_BLE_GPS_PVT_DATA_READ_CHAR_HANDLE, rfr, sizeof(FRESULT));
+			break;
+		case CY_BLE_GPS_PVT_DATA_CHAR_HANDLE:
+			;
 			UINT br;
 
 			if (rfr == FR_OK) {
-				char *thingToRead = calloc(1, 256);
-				f_read(rFil, thingToRead, 256, &br);
+				char thingToRead[256];
+				rfr = f_read(rFil, thingToRead, 256, &br);
 				CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
 						CY_BLE_GPS_PVT_DATA_CHAR_HANDLE, thingToRead, 256);
-				free(thingToRead);
 			}
+			break;
+		case CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE:
+			if (rFil != NULL) {
+				rfr = f_close(rFil);
+				free(rFil);
+				rFil = NULL;
+				CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+						CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE, rfr,
+						sizeof(FRESULT));
+			}
+			break;
 		}
 		break;
 	}

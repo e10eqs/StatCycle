@@ -28,21 +28,16 @@ int main (void)
 
 	f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
 
-	fr = f_open(&Fil, "mock_test.txt", FA_READ);	/* Create a file */
+	fr = f_open(&Fil, "mock_test.txt", FA_CREATE_ALWAYS | FA_WRITE);	/* Create a file */
 	//fr = f_unlink("brandonthisareallylongfilename.txt"); /* delete a file */
 	if (fr == FR_OK) {
-		//char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
-		//f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
-		int sz = 256;
-		char* thingToRead = calloc(1, sz);
-		while(f_eof(&Fil) == 0){
-			fr = f_read(&Fil, thingToRead, sz, &bw);
-		}
+		char thingToWrite[] = "It works! Testing!!! This is for ECE453.\r\n";
+		f_write(&Fil, thingToWrite, strlen(thingToWrite), &bw);	/* Write data to the file */
 		fr = f_close(&Fil);							/* Close the file */
-		free(thingToRead);
-//		if (fr == FR_OK && bw == strlen(thingToWrite)) {		/* Lights green LED if data written well */
-//			cyhal_gpio_write(PIN_USER_LED, true);
-//		}
+		//free(thingToRead);
+		if (fr == FR_OK && bw == strlen(thingToWrite)) {		/* Lights green LED if data written well */
+			cyhal_gpio_write(PIN_USER_LED, true);
+		}
 	}
 	for (;;) ;
 }
