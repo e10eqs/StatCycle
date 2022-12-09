@@ -47,52 +47,154 @@
 #include "main.h"
 
 
-#define POLL_PVT            1
-#define READ_MESSAGE 	    0
-#define STOP_NMEA_DATA      0
-#define SET_AND_SAVE_CONFIG 0
+#define POLL_PVT                1
+#define READ_MESSAGE 	        0
+#define STOP_NMEA_DATA          0
+#define SET_AND_SAVE_CONFIG     0
+#define RESET_CONFIG            0
+#define GET_NUM_BYTES_AVAILABLE 0
+
+#define MAIN_BOARD			1
+
+FATFS FatFs;		/* FatFs work area needed for each volume */
+FIL Fil;			/* File object needed for each open file */
+
+FRESULT fr;
 
 
 int main(void)
 {
 
+#if MAIN_BOARD
+    i2c_init();
+    display_init();
+    __enable_irq();
+
+	f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
+	fr = f_open(&Fil, "NMEA_data_buffer.txt", FA_WRITE | FA_CREATE_ALWAYS);	/* Create a file */
+#else
     console_init();
 
     printf("\x1b[2J\x1b[;H");
-
     printf("******************\n\r");
     printf("* ECE453 Dev Platform\n\r");
-
 
     printf("* -- Initializing I2C Bus\n\r");
     i2c_init();
     printf("* -- Success\n\r");
 
-
     printf("* -- Enabling Interrupts\n\r");
-	/* Enable global interrupts */
-	__enable_irq();
-
+    __enable_irq();
     printf("****************** \r\n\n");
+#endif
+
 
 #if SET_AND_SAVE_CONFIG
-    setCommunicationToUbx();
-    saveConfig();
-    while(1) {
-    	readMessage();
+
+#if MAIN_BOARD
+    bool config_result;
+    config_result = setCommunicationToUbx();
+
+    if(config_result) {
+    	display_digit(0, 1);
     	cyhal_system_delay_ms(5000);
     }
+    else {
+    	display_digit(0, 0);
+    	cyhal_system_delay_ms(5000);
+    }
+
+    config_result = saveConfig();
+    if(config_result) {
+    	display_digit(1, 1);
+    	cyhal_system_delay_ms(5000);
+    }
+    else {
+    	display_digit(1, 0);
+    	cyhal_system_delay_ms(5000);
+    }
+#else
+    setCommunicationToUbx();
+    saveConfig();
+
+    while(1) {
+        	readMessage();
+        	cyhal_system_delay_ms(5000);
+    }
+#endif
+
+#endif
+
+#if RESET_CONFIG
+
+#if MAIN_BOARD
+    bool config_result;
+    config_result = resetConfig();
+    if(config_result) {
+    	display_digit(0, 1);
+    	cyhal_system_delay_ms(5000);
+    }
+    else {
+    	display_digit(0, 0);
+    	cyhal_system_delay_ms(5000);
+    }
+#else
+	uint16_t bytesAvailable = getNumBytesAvailable();
+	printf("\r\nBytes available: %x\n\r", bytesAvailable);
+
+    resetConfig();
+    while(1) {
+        	readMessage();
+        	cyhal_system_delay_ms(5000);
+    }
+#endif
+
+#endif
+
+#if GET_NUM_BYTES_AVAILABLE
+
+#if MAIN_BOARD
+    uint16_t bytesAvailable;
+    while(1) {
+    	bytesAvailable = getNumBytesAvailable();
+    	display_digit(0, (bytesAvailable > 0));
+    	cyhal_system_delay_ms(1000);
+    }
+
+#else
+    uint16_t bytesAvailable;
+    while(1) {
+    	bytesAvailable = getNumBytesAvailable();
+    	printf("Number of bytes available: %d\r\n", bytesAvailable);
+    	cyhal_system_delay_ms(1000);
+    }
+#endif
 
 #endif
 
 #if READ_MESSAGE
+
+#if MAIN_BOARD
+    display_digit(0, 0);
+    int i = 0;
+
+    while(i < 25) {
+    	readMessage();
+    	cyhal_system_delay_ms(1000);
+    	i++;
+    }
+
+    display_digit(0, 1);
+    fr = f_close(&Fil);							/* Close the file */
+#else
     while(1) {
-    	printf("\r\n\r\n");
     	readMessage();
     	cyhal_system_delay_ms(1000);
     }
+#endif
 
 #endif
+
 
 #if STOP_NMEA_DATA
     setCommunicationToUbx();
@@ -108,47 +210,33 @@ int main(void)
 
 #if POLL_PVT
 
-    while(1)
-    {
-    	/*
-    	readMessage();
-    	cyhal_system_delay_ms(1000);
-    	*/
+#if MAIN_BOARD
+	display_digit(0, 0);
 
-    	/*
-    	uint16_t bytesAvailable;
-    	bytesAvailable = getNumBytesAvailable();
-    	printf("Bytes available: %x\n\r", bytesAvailable);
-    	cyhal_system_delay_ms(1000);
-		*/
+	enum pvtState_e state;
+	push_button_init();
 
-    	printf("\r\nContinue\r\n");
-    	getPVT();
-
+	while(1) {
+		state = getPVT();
+		display_digit(1, state);
     	cyhal_system_delay_ms(1000);
-    	uint16_t bytesAvailable;
+    	if(ALERT_PUSH_BUTTON) {
+    		break;
+    	}
+	}
+	fr = f_close(&Fil);		/* Close the file */
+    display_digit(0, 1);
+#else
+	uint16_t bytesAvailable;
+	while(1) {
+		printf("\r\nContinue\r\n");
+		getPVT();
+    	cyhal_system_delay_ms(1000);
     	bytesAvailable = getNumBytesAvailable();
     	printf("\r\nBytes available: %x\n\r", bytesAvailable);
+	}
+#endif
 
-    	/*
-    	cyhal_system_delay_ms(1000);
-    	bytesAvailable = getNumBytesAvailable();
-    	printf("Bytes available: %x\n\r", bytesAvailable);
-
-    	cyhal_system_delay_ms(1000);
-    	bytesAvailable = getNumBytesAvailable();
-    	printf("Bytes available: %x\n\r", bytesAvailable);
-
-    	cyhal_system_delay_ms(1000);
-    	bytesAvailable = getNumBytesAvailable();
-    	printf("Bytes available: %x\n\r", bytesAvailable);
-
-    	cyhal_system_delay_ms(1000);
-    	bytesAvailable = getNumBytesAvailable();
-    	printf("Bytes available: %x\n\r", bytesAvailable);
-    	*/
-
-    }
 #endif
 
 }

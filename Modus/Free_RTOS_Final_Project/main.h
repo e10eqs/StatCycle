@@ -45,7 +45,7 @@ extern TaskHandle_t task_ble_findme_process_handle;
 extern TaskHandle_t task_state_machine_handle;
 
 extern FATFS FatFs;		/* FatFs work area needed for each volume */
-extern FIL Fil;			/* File object needed for each open file */
+extern FIL* Fil;			/* File object needed for each open file */
 extern FRESULT fr;
 
 #endif /* MAIN_H_ */

@@ -545,13 +545,13 @@
                                 </Characteristic>
                                 <Characteristic type="org.bluetooth.characteristic.custom">
                                     <CharacteristicProperties>
-                                        <Property id="DisplayName" value="PVT_LIST_FILES"/>
-                                        <Property id="UUID" value="9EDCA81C-DC5A-4733-9870-18508D381DD3"/>
+                                        <Property id="DisplayName" value="OPEN_FILE"/>
+                                        <Property id="UUID" value="7D8D6C8B-DFF7-4E4C-A67B-BCAC8A945D5B"/>
                                     </CharacteristicProperties>
                                     <Fields>
                                         <Field>
                                             <FieldProperties>
-                                                <Property id="Name" value="PVT_LIST_FILES"/>
+                                                <Property id="Name" value="OPEN_FILE"/>
                                                 <Property id="Value" value=""/>
                                                 <Property id="Format" value="f_utf8s"/>
                                                 <Property id="ByteLength" value="0"/>
@@ -561,7 +561,7 @@
                                     <Properties>
                                         <BleProperty>
                                             <Property id="PropertyType" value="Read"/>
-                                            <Property id="Present" value="false"/>
+                                            <Property id="Present" value="true"/>
                                             <Property id="Mandatory" value="false"/>
                                         </BleProperty>
                                         <BleProperty>
@@ -571,7 +571,7 @@
                                         </BleProperty>
                                         <BleProperty>
                                             <Property id="PropertyType" value="WriteWithoutResponse"/>
-                                            <Property id="Present" value="false"/>
+                                            <Property id="Present" value="true"/>
                                             <Property id="Mandatory" value="false"/>
                                         </BleProperty>
                                         <BleProperty>
@@ -606,16 +606,51 @@
                                         </BleProperty>
                                     </Properties>
                                     <Permission>
-                                        <Property id="AccessPermissionRead" value="false"/>
+                                        <Property id="AccessPermissionRead" value="true"/>
                                         <Property id="EncryptionPermissionRead" value="NoEncryptionRequired"/>
                                         <Property id="AuthenticationPermissionRead" value="NoAuthenticationRequired"/>
                                         <Property id="AuthorizationPermissionRead" value="NoAuthorizationRequired"/>
-                                        <Property id="AccessPermissionWrite" value="false"/>
+                                        <Property id="AccessPermissionWrite" value="true"/>
                                         <Property id="EncryptionPermissionWrite" value="NoEncryptionRequired"/>
                                         <Property id="AuthenticationPermissionWrite" value="NoAuthenticationRequired"/>
                                         <Property id="AuthorizationPermissionWrite" value="NoAuthorizationRequired"/>
                                     </Permission>
-                                    <Descriptors/>
+                                    <Descriptors>
+                                        <Descriptor type="org.bluetooth.descriptor.gatt.characteristic_user_description">
+                                            <Fields>
+                                                <Field>
+                                                    <FieldProperties>
+                                                        <Property id="Name" value="User Description"/>
+                                                        <Property id="Value" value="Attempts to Open a File"/>
+                                                        <Property id="Format" value="f_utf8s"/>
+                                                        <Property id="ByteLength" value="23"/>
+                                                    </FieldProperties>
+                                                </Field>
+                                            </Fields>
+                                            <Properties>
+                                                <BleProperty>
+                                                    <Property id="PropertyType" value="Read"/>
+                                                    <Property id="Present" value="true"/>
+                                                    <Property id="Mandatory" value="false"/>
+                                                </BleProperty>
+                                                <BleProperty>
+                                                    <Property id="PropertyType" value="Write"/>
+                                                    <Property id="Present" value="false"/>
+                                                    <Property id="Mandatory" value="false"/>
+                                                </BleProperty>
+                                            </Properties>
+                                            <Permission>
+                                                <Property id="AccessPermissionRead" value="true"/>
+                                                <Property id="EncryptionPermissionRead" value="NoEncryptionRequired"/>
+                                                <Property id="AuthenticationPermissionRead" value="NoAuthenticationRequired"/>
+                                                <Property id="AuthorizationPermissionRead" value="NoAuthorizationRequired"/>
+                                                <Property id="AccessPermissionWrite" value="false"/>
+                                                <Property id="EncryptionPermissionWrite" value="NoEncryptionRequired"/>
+                                                <Property id="AuthenticationPermissionWrite" value="NoAuthenticationRequired"/>
+                                                <Property id="AuthorizationPermissionWrite" value="NoAuthorizationRequired"/>
+                                            </Permission>
+                                        </Descriptor>
+                                    </Descriptors>
                                 </Characteristic>
                             </Characteristics>
                         </Service>

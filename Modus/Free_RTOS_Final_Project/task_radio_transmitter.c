@@ -17,7 +17,7 @@ void set_buffer(int value, bool* buffer)
 void Task_Radio_Transmitter(void *pvParameters) {
 
 	//init gpio
-	cyhal_gpio_init(TRANSMITTER_OUT, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 1);
+	cyhal_gpio_init(TRANSMITTER_OUT, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0);
 
 	//set up vars
 	bool buffer[8];

@@ -11,6 +11,13 @@
 #include "console.h"
 #include "i2c.h"
 #include "gps.h"
+#include "display.h"
+#include "push_button.h"
+
+#include "./generic/ff.h"		/* Declarations of FatFs API */
+
+extern FRESULT fr;
+extern FIL Fil;
 
 
 #endif /* MAIN_H_ */
