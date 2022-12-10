@@ -31,6 +31,7 @@ cy_stc_ble_gatts_char_val_read_req_t *read_req_params;
 cy_stc_ble_gatts_write_cmd_req_param_t *write_req_params;
 FIL *rFil = NULL;
 FRESULT rfr;
+FRESULT resdir;
 
 /*******************************************************************************
  * Function Prototypes
@@ -336,10 +337,21 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 			UINT br;
 
 			if (rfr == FR_OK) {
-				char thingToRead[256];
-				rfr = f_read(rFil, thingToRead, 256, &br);
+				char *thingToRead = calloc(1, 256);
+				f_gets(thingToRead, 256, rFil);
 				CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
 						CY_BLE_GPS_PVT_DATA_CHAR_HANDLE, thingToRead, 256);
+				free(thingToRead);
+			}
+			break;
+		case CY_BLE_GPS_LIST_DIR_CHAR_HANDLE:
+			if (dir != NULL) {
+				f_readdir(dir, &fno);
+				if (fno.fname[0] != 0) {
+					CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+							CY_BLE_GPS_LIST_DIR_CHAR_HANDLE, fno.fname,
+							FF_LFN_BUF + 1);
+				}
 			}
 			break;
 		case CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE:
@@ -351,6 +363,19 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 						CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE, rfr,
 						sizeof(FRESULT));
 			}
+			break;
+		case CY_BLE_GPS_OPEN_DIR_CHAR_HANDLE:
+			dir = malloc(sizeof(DIR));
+			resdir = f_opendir(dir, "/");   // Open Root
+			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(CY_BLE_GPS_OPEN_DIR_CHAR_HANDLE,
+					resdir, sizeof(FRESULT));
+			break;
+		case CY_BLE_GPS_CLOSE_DIR_CHAR_HANDLE:
+			resdir = f_closedir(dir);
+			free(dir);
+			dir = NULL;
+			CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(CY_BLE_GPS_CLOSE_DIR_CHAR_HANDLE,
+					resdir, sizeof(FRESULT));
 			break;
 		}
 		break;

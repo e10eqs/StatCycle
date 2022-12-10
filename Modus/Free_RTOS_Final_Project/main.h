@@ -48,5 +48,7 @@ extern TaskHandle_t task_state_machine_handle;
 extern FATFS FatFs;		/* FatFs work area needed for each volume */
 extern FIL* Fil;			/* File object needed for each open file */
 extern FRESULT fr;
+extern DIR* dir;                    // Directory
+extern FILINFO fno;                // File Info
 
 #endif /* MAIN_H_ */

@@ -27,7 +27,7 @@ void Task_Dummy_Velocity(void *pvParameters) {
  				free(file_name);
 			}
 			uint32_t speed = pvt.groundSpeed / 447.04;
-			f_printf(Fil, "Hour: %d, Minute: %d, Second: %d Latitude: %ld Longitude: %ld, PEED: %ld\r\n", pvt.hour, pvt.min, pvt.sec, pvt.latitude, pvt.longitude, speed);
+			f_printf(Fil, "Hour: %d, Minute: %d, Second: %d Latitude: %ld Longitude: %ld, SPEED: %ld\r\n", pvt.hour, pvt.min, pvt.sec, pvt.latitude, pvt.longitude, speed);
 			d.current_state = NUM;
 			for (int i = 3; i >= 0; i--) {
 				d.display[i] = speed % 10;

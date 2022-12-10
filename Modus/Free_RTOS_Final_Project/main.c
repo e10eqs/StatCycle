@@ -15,6 +15,8 @@ TaskHandle_t task_state_machine_handle;
 FATFS FatFs;				/* FatFs work area needed for each volume */
 FIL* Fil = NULL;			/* File object needed for each open file */
 FRESULT fr;
+DIR* dir = NULL;                 // Directory
+FILINFO fno;                // File Info
 
 
 int main(void)
