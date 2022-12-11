@@ -3,6 +3,7 @@
 QueueHandle_t Queue_Display;
 QueueHandle_t Queue_Speed;
 QueueHandle_t Queue_Buttons;
+SemaphoreHandle_t Sem_Radio_Lock;
 
 TaskHandle_t task_Redraw_Display_handle;
 TaskHandle_t task_Dummy_Velocity_handle;
@@ -12,9 +13,13 @@ TaskHandle_t task_gps_sd_card_handle;
 TaskHandle_t task_ble_findme_process_handle;
 TaskHandle_t task_state_machine_handle;
 
-FATFS FatFs;		/* FatFs work area needed for each volume */
-FIL Fil;			/* File object needed for each open file */
+FATFS FatFs;				/* FatFs work area needed for each volume */
+FIL* Fil = NULL;			/* File object needed for each open file */
 FRESULT fr;
+DIR* dir = NULL;                 // Directory
+FILINFO fno;                // File Info
+
+
 
 int main(void)
    {
@@ -34,19 +39,14 @@ int main(void)
        ble_findme_init();
        f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
 
-       fr = f_open(&Fil, "brandonthisareallylongfilename.txt", FA_OPEN_EXISTING | FA_READ);
-
-       Queue_Display = xQueueCreate(1, sizeof(Display));
+       Queue_Display = xQueueCreate(5, sizeof(Display));
        Queue_Speed = xQueueCreate(1, sizeof(uint8_t));
        Queue_Buttons = xQueueCreate(1, sizeof(int));
 
        xTaskCreate(Task_Redraw_Display, "Task_Redraw_Display", configMINIMAL_STACK_SIZE, NULL, 4, &task_Redraw_Display_handle);
-       xTaskCreate(Task_Dummy_Velocity, "Task_Dummy_Velocity", configMINIMAL_STACK_SIZE, NULL, 3, &task_Dummy_Velocity_handle);
-       //soon but not yet - Owen needs to add the config to the gps module on the main board
-       //xTaskCreate(task_gps_sd_card, "task_gps_sd_card", configMINIMAL_STACK_SIZE, NULL, 3, &task_gps_sd_card_handle);
-
-       xTaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 5, &task_Radio_Transmitter_handle);
-       xTaskCreate(task_state_machine, "task_state_machine", 1024, NULL, 4, &task_state_machine_handle);
+       xTaskCreate(Task_Dummy_Velocity, "Task_Dummy_Velocity", 256, NULL, 3, &task_Dummy_Velocity_handle);
+       xTaskCreate(Task_Radio_Transmitter, "Task_Radio_Transmitter", configMINIMAL_STACK_SIZE, NULL, 6, &task_Radio_Transmitter_handle);
+       xTaskCreate(task_state_machine, "task_state_machine", 1024, NULL, 5, &task_state_machine_handle);
        xTaskCreate(task_button_queue_send, "button_send_queue", configMINIMAL_STACK_SIZE, NULL, 4, &task_button_queue_send_handle);
        xTaskCreate(task_ble_findme_process, "task_ble_findme_process", 1024, NULL, 4, &task_ble_findme_process_handle);
 

@@ -18,9 +18,9 @@ void Task_Redraw_Display(void *pvParameters) {
 		case FLASH:
 			for (int i = 0; i < 5; i++) {
 				display_digit_all(0);
-				vTaskDelay(pdMS_TO_TICKS(500));
+				vTaskDelay(pdMS_TO_TICKS(250));
 				display_all_dig_off();
-				vTaskDelay(pdMS_TO_TICKS(500));
+				vTaskDelay(pdMS_TO_TICKS(250));
 			}
 			//d.current_state = OFF;
 			break;

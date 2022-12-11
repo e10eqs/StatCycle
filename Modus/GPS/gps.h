@@ -12,6 +12,8 @@
 
 #include "cy_retarget_io.h"
 
+#include "main.h"
+
 
 #define GPS_ADDR 0x42
 
@@ -136,6 +138,8 @@ struct ubxPacket {
 
 enum pvtState_e { POLL_ERROR, DATA_ERROR, NO_FIX, VALID_FIX };
 
+enum messageState_e { TIMEOUT, READ_ERROR, WRONG_MESSAGE, CORRECT_MESSAGE};
+
 
 void calcChecksum(struct ubxPacket * msg);
 
@@ -149,10 +153,12 @@ bool setCommunicationToUbx();
 
 bool saveConfig();
 
+bool resetConfig();
+
 enum pvtState_e getPVT();
 
 bool waitForAck();
 
-bool waitForUbxMessage(struct ubxPacket * msg, uint8_t msgLength);
+enum messageState_e waitForUbxMessage(struct ubxPacket * msg, uint8_t msgLength);
 
 #endif /* GPS_H_ */

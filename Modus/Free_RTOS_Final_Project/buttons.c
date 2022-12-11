@@ -8,16 +8,14 @@ static void isr_debounce_start_ride(void *callback_arg, cyhal_timer_event_t even
 {
 	BaseType_t xHigherPriorityTaskWoken;
 
-    static uint8_t press_count = 0;
+    static uint8_t press_count = 0x00;
+    press_count = press_count << 1;
     bool in = cyhal_gpio_read(PIN_START_RIDE_PB);
     if(!in){
-        press_count++;
-    } else {
-        press_count = 0;
+       press_count = press_count | 0x01;
     }
     //debounce then add start ride to queue
-    if(press_count == 12){
-    	press_count = 0;
+    if(press_count == 0x7F){
     	pressed = START_RIDE;
     	vTaskNotifyGiveFromISR(task_button_queue_send_handle, &xHigherPriorityTaskWoken);
     	portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
@@ -59,17 +57,15 @@ void start_ride_interrupt()
 cyhal_timer_t pairing_timer_obj;
 static void isr_debounce_pairing(void *callback_arg, cyhal_timer_event_t event)
 {
-    static uint8_t press_count = 0;
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    BaseType_t xHigherPriorityTaskWoken;
+    static uint8_t press_count = 0x00;
+    press_count = press_count << 1;
     bool in = cyhal_gpio_read(PIN_BT_PAIR_PB);
     if(!in){
-        press_count++;
-    } else {
-        press_count = 0;
+    	press_count = press_count | 0x01;
     }
     //debounce then add start ride to queue
-    if(press_count == 10){
-        press_count = 0;
+    if(press_count == 0x7F){
         pressed = PAIRING;
         vTaskNotifyGiveFromISR(task_button_queue_send_handle, &xHigherPriorityTaskWoken);
         portYIELD_FROM_ISR(xHigherPriorityTaskWoken);

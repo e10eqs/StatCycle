@@ -28,13 +28,14 @@ void task_state_machine(void *pvParameters)
 				break;
 			case RIDE_TIME:
 				//start gps, radio, and 7 seg task
-			    fr = f_open(&Fil, "fake_gps_data.txt", FA_CREATE_ALWAYS | FA_WRITE);
 				vTaskResume(task_Dummy_Velocity_handle);
 				vTaskResume(task_Radio_Transmitter_handle);
 				xQueueReceive(Queue_Buttons, &button, portMAX_DELAY);
 				if(button == START_RIDE) {
 					//end tasks and go back to waiting
-					f_close(&Fil);
+					f_close(Fil);
+					free(Fil);
+					Fil = NULL;
 					vTaskSuspend(task_Radio_Transmitter_handle);
 					vTaskSuspend(task_Dummy_Velocity_handle);
 					button = NONE;

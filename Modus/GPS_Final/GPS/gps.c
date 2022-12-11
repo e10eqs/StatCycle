@@ -381,6 +381,7 @@ enum pvtState_e getPVT()
 		f_printf(&Fil, "Fully resolved: %x\r\n", ((pvt.validTimeFlag & 0x04) >> 2) );
 		f_printf(&Fil, "Number of satellites: %d\r\n", pvt.numberOfSatellites);
 		f_printf(&Fil, "Hour: %d, Minute: %d, Second: %d\r\n", pvt.hour, pvt.min, pvt.sec);
+		f_printf(&Fil, "Day: %d, Month: %d, Year: %d\r\n", pvt.day, pvt.month, pvt.year);
 		f_printf(&Fil, "Latitude: %ld\r\n", pvt.latitude);
 		f_printf(&Fil, "Longitude: %ld\r\n", pvt.longitude);
 		f_printf(&Fil, "SPEED: %ld\r\n", pvt.groundSpeed);
