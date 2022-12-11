@@ -10,8 +10,8 @@ uint8_t led_mode;
 cy_rslt_t rslt;
 
 void (*mode[NUM_MODES])(
-		uint8_t) = {pwm_duty_cycle_red, pwm_duty_cycle_green, pwm_duty_cycle_blue, pwm_duty_cycle_white, sweep, pulse_all, pulse_color, pulse_party
-		};
+		uint8_t) = {buckets, pwm_duty_cycle_red, pwm_duty_cycle_green, pwm_duty_cycle_blue, pwm_duty_cycle_white, pulse_all, pulse_party,
+			blink_red, blink_green, blink_blue, blink_white, blink_all };
 bool buffer[8];
 
 /* Timer object used */
@@ -25,8 +25,7 @@ static void isr_radio_receiver(void *callback_arg, cyhal_timer_event_t event) {
 	static int state = WAITING;
 	static uint i = 0;
 
-	static uint8_t j = 0;
-	(*mode[led_mode % NUM_MODES])(j++ %255);
+	(*mode[led_mode % NUM_MODES])(speed);
 	bool in = cyhal_gpio_read(P10_4);
 	switch (state) {
 	case WAITING:
@@ -54,7 +53,9 @@ static void isr_radio_receiver(void *callback_arg, cyhal_timer_event_t event) {
 		for (int i = 0; i < 8; i++) {
 			speed |= buffer[i] << i;
 		}
-		cyhal_gpio_write(P5_5, speed);
+
+		speed *= 10;
+
 		state = WAITING;
 		break;
 	}
@@ -118,7 +119,7 @@ void pwm_duty_cycle_blue(uint8_t speed) {
 	pwm_stop_all();
 	float set_speed = set_speed_range(speed);
 	cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[BLUE], set_speed,
-			FREQUENCY);
+	FREQUENCY);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
 	rslt = cyhal_pwm_start(&leds[BLUE]);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
@@ -128,7 +129,7 @@ void pwm_duty_cycle_green(uint8_t speed) {
 	pwm_stop_all();
 	float set_speed = set_speed_range(speed);
 	cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[GREEN], set_speed,
-			FREQUENCY);
+	FREQUENCY);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
 	rslt = cyhal_pwm_start(&leds[GREEN]);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
@@ -138,7 +139,7 @@ void pwm_duty_cycle_white(uint8_t speed) {
 	pwm_stop_all();
 	float set_speed = set_speed_range(speed);
 	cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[WHITE], set_speed,
-			FREQUENCY);
+	FREQUENCY);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
 	rslt = cyhal_pwm_start(&leds[WHITE]);
 	CY_ASSERT(CY_RSLT_SUCCESS == rslt);
@@ -151,23 +152,6 @@ uint8_t set_speed_frequency(uint8_t speed) {
 	 so that a higher speed will result in a shorter period
 	 */
 	return 11 - speed / 25;
-}
-
-void sweep(uint8_t speed) {
-	static uint8_t call_count;
-	static int color = 0;
-	static uint8_t intensity = 0;
-	pwm_stop_all();
-
-	//update intensity with speed
-	if (call_count++ % set_speed_frequency(speed) == 0) {
-		intensity += 5;
-		cyhal_pwm_set_duty_cycle(&leds[color], intensity % 100, FREQUENCY);
-		cyhal_pwm_start(&leds[color]);
-		if (intensity % 100 == 0) {
-			color = color++ % NUMLEDS;
-		}
-	}
 }
 
 void pulse_all(uint8_t speed) {
@@ -184,21 +168,6 @@ void pulse_all(uint8_t speed) {
 	}
 }
 
-void pulse_color(uint8_t speed) {
-	int color = BLUE;
-	static int call_count = 0;
-	static uint8_t intensity = 0;
-	//update intensity with speed
-	if (call_count++ % set_speed_frequency(speed) == 0) {
-		intensity += 5;
-		cyhal_pwm_stop(&leds[color]);
-		//fun line! intensity will eventually overflow but we don't care because we'll still have
-		// a value out of 100 that is always positive
-		cyhal_pwm_set_duty_cycle(&leds[color], intensity % 100, FREQUENCY);
-		cyhal_pwm_start(&leds[color]);
-	}
-}
-
 void pulse_party(uint8_t speed) {
 	static int call_count = 0;
 	static uint8_t intensity = 0;
@@ -209,6 +178,106 @@ void pulse_party(uint8_t speed) {
 		cyhal_pwm_stop(&leds[rand_color]);
 		cyhal_pwm_set_duty_cycle(&leds[rand_color], intensity % 100, FREQUENCY);
 		cyhal_pwm_start(&leds[rand_color]);
+	}
+}
+
+uint8_t set_blink(uint8_t speed) {
+	//min 1, max 50
+	return ((255 - speed) * 50 / 255) + 1;
+}
+
+/*
+ change the frequency of blinks with speed
+ */
+void blink_red(uint8_t speed) {
+	static uint8_t call_count = 0;
+	pwm_stop_all();
+	if (call_count % set_blink(speed) == 0) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[RED], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	}
+}
+
+void blink_green(uint8_t speed) {
+	static uint8_t call_count = 0;
+	pwm_stop_all();
+	if (call_count % set_blink(speed) == 0) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[GREEN], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	}
+}
+
+void blink_blue(uint8_t speed) {
+	static uint8_t call_count = 0;
+	pwm_stop_all();
+	if (call_count % set_blink(speed) == 0) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[BLUE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	}
+}
+
+void blink_white(uint8_t speed) {
+	static uint8_t call_count = 0;
+	pwm_stop_all();
+	if (call_count % set_blink(speed) == 0) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[WHITE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	}
+}
+
+void blink_all(uint8_t speed) {
+	static uint8_t call_count = 0;
+	pwm_stop_all();
+	if (call_count % set_blink(speed) == 0) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[RED], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_set_duty_cycle(&leds[GREEN], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_set_duty_cycle(&leds[BLUE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_set_duty_cycle(&leds[WHITE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[GREEN]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[BLUE]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[WHITE]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	}
+}
+
+void buckets(uint8_t speed) {
+	pwm_stop_all();
+	if (speed < 63) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[RED], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[RED]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	} else if (speed < 126) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[GREEN], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[GREEN]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	} else if (speed < 189) {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[BLUE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[BLUE]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+	} else {
+		cy_rslt_t rslt = cyhal_pwm_set_duty_cycle(&leds[WHITE], 100, FREQUENCY);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
+		rslt = cyhal_pwm_start(&leds[WHITE]);
+		CY_ASSERT(CY_RSLT_SUCCESS == rslt);
 	}
 }
 
