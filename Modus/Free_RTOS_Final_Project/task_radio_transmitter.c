@@ -21,11 +21,11 @@ void Task_Radio_Transmitter(void *pvParameters) {
 
 	//set up vars
 	bool buffer[8];
-	uint8_t data;
+	static uint8_t data = 0;
 
 	while(1) {
+		xQueueReceive(Queue_Speed, &data, 0);
 
-		xQueueReceive(Queue_Speed, &data, portMAX_DELAY);
 		set_buffer(data, buffer);
 
 		//STARTBIT_1:
@@ -38,7 +38,7 @@ void Task_Radio_Transmitter(void *pvParameters) {
 
 		//BUFFEROUT:
 		for(int i = 0; i < 8; i++){
-			cyhal_gpio_write(TRANSMITTER_OUT, buffer[i++]);
+			cyhal_gpio_write(TRANSMITTER_OUT, buffer[i]);
 			vTaskDelay(pdMS_TO_TICKS(PULSE_WIDTH));
 		}
 

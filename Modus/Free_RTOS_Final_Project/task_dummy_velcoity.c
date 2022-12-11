@@ -5,10 +5,13 @@ void Task_Dummy_Velocity(void *pvParameters) {
 	enum pvtState_e state = NO_FIX;
 	Display d = { NUM, { 0, 0, 0, 0 } };
 	enum states new_display_state = NUM;
+	static int data = 0;
 
 	while (1) {
 		state = getPVT();
-
+		data += 5;
+		data = data % 255;
+		xQueueSend(Queue_Speed, &data, portMAX_DELAY);
 		switch (state) {
 		case NO_FIX:
 			new_display_state = FLASH;
@@ -26,15 +29,15 @@ void Task_Dummy_Velocity(void *pvParameters) {
 				fr = f_open(Fil, file_name, FA_CREATE_ALWAYS | FA_WRITE);
  				free(file_name);
 			}
-			uint32_t speed = pvt.groundSpeed / 447.04;
+			double speed = pvt.groundSpeed / 447.04;
 			f_printf(Fil, "Hour: %d, Minute: %d, Second: %d Latitude: %ld Longitude: %ld, SPEED: %ld\r\n", pvt.hour, pvt.min, pvt.sec, pvt.latitude, pvt.longitude, speed);
 			d.current_state = NUM;
 			for (int i = 3; i >= 0; i--) {
-				d.display[i] = speed % 10;
+				d.display[i] = fmod(speed, 10);
 				speed /= 10;
 			}
 			xQueueSend(Queue_Display, &d, portMAX_DELAY);
-			//xQueueSend(Queue_Speed, &speed, portMAX_DELAY);
+
 			break;
 		case POLL_ERROR:
 			d.current_state = NUM;

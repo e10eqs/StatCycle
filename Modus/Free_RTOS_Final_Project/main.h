@@ -11,6 +11,7 @@
 #include "gps.h"
 #include "ff.h"
 #include "string.h"
+#include "math.h"
 
 /* RTOS header files */
 #include "FreeRTOS.h"

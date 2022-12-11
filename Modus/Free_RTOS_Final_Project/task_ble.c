@@ -297,18 +297,20 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 		case CY_BLE_GPS_PVT_DATA_SEEK_CHAR_HANDLE:
 			f_lseek(rFil, *write_req_params->handleValPair.value.val);
 			break;
-		}
+
 		case (CY_BLE_GPS_OPEN_FILE_CHAR_HANDLE):
-		if (rFil == NULL) {
-			rFil = malloc(sizeof(FIL));
-			int sz = write_req_params->handleValPair.value.len + 1;
-			char *name = malloc(sz);
-			snprintf(name, sz, "%s", write_req_params->handleValPair.value.val);
-			rfr = f_open(rFil, name,
-			FA_OPEN_EXISTING | FA_READ);
-			free(name);
+			if (rFil == NULL) {
+				rFil = malloc(sizeof(FIL));
+				int sz = write_req_params->handleValPair.value.len + 1;
+				char *name = malloc(sz);
+				snprintf(name, sz, "%s",
+						write_req_params->handleValPair.value.val);
+				rfr = f_open(rFil, name,
+				FA_OPEN_EXISTING | FA_READ);
+				free(name);
+			}
+			break;
 		}
-		break;
 		break;
 	}
 
@@ -352,6 +354,12 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 							CY_BLE_GPS_LIST_DIR_CHAR_HANDLE, fno.fname,
 							FF_LFN_BUF + 1);
 				}
+			} else {
+				char *empty = calloc(1, FF_LFN_BUF + 1);
+				CY_BLE_GATT_DB_ATTR_SET_GEN_VALUE(
+						CY_BLE_GPS_LIST_DIR_CHAR_HANDLE, empty, FF_LFN_BUF + 1);
+				free(empty);
+
 			}
 			break;
 		case CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE:

@@ -47,10 +47,10 @@
 #include "main.h"
 
 
-#define POLL_PVT                1
+#define POLL_PVT                0
 #define READ_MESSAGE 	        0
 #define STOP_NMEA_DATA          0
-#define SET_AND_SAVE_CONFIG     0
+#define SET_AND_SAVE_CONFIG     1
 #define RESET_CONFIG            0
 #define GET_NUM_BYTES_AVAILABLE 0
 
