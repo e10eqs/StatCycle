@@ -32,6 +32,8 @@ cy_stc_ble_gatts_write_cmd_req_param_t *write_req_params;
 FIL *rFil = NULL;
 FRESULT rfr;
 FRESULT resdir;
+int count = 0;
+int count2 = 0;
 
 /*******************************************************************************
  * Function Prototypes
@@ -337,7 +339,7 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 		case CY_BLE_GPS_PVT_DATA_CHAR_HANDLE:
 			;
 			UINT br;
-
+			if(count % 4 == 0){
 			if (rfr == FR_OK) {
 				char *thingToRead = calloc(1, 256);
 				f_gets(thingToRead, 256, rFil);
@@ -345,8 +347,11 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 						CY_BLE_GPS_PVT_DATA_CHAR_HANDLE, thingToRead, 256);
 				free(thingToRead);
 			}
+			}
+			count++;
 			break;
 		case CY_BLE_GPS_LIST_DIR_CHAR_HANDLE:
+			if(count2 % 4 == 0){
 			if (dir != NULL) {
 				f_readdir(dir, &fno);
 				if (fno.fname[0] != 0) {
@@ -361,6 +366,8 @@ static void stack_event_handler(uint32_t event, void *eventParam) {
 				free(empty);
 
 			}
+			}
+			count2++;
 			break;
 		case CY_BLE_GPS_CLOSE_FILE_CHAR_HANDLE:
 			if (rFil != NULL) {

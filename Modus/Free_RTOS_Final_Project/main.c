@@ -37,6 +37,8 @@ int main(void)
        buttons_init();
        i2c_init();
        ble_findme_init();
+       setCommunicationToUbx();
+       saveConfig();
        f_mount(&FatFs, "", 0);		/* Give a work area to the default drive */
 
        Queue_Display = xQueueCreate(5, sizeof(Display));
